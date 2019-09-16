@@ -1,0 +1,17 @@
+Package: samplingbook
+Type: Package
+Title: Survey Sampling Procedures
+Version: 1.2.3
+Date: 2019-09-15
+Author: Juliane Manitz [aut,cre], Mark Hempelmann [ctb], Goeran Kauermann [ctb], Helmut Kuechenhoff [aut],  Shuai Shao [ctb], Cornelia Oberhauser [ctb], Nina Westerheide [ctb], Manuel Wiesenfarth [ctb]
+Maintainer: Juliane Manitz <r@manitz.org>
+URL: http://www.samplingbook.manitz.org
+BugReports: https://github.com/jmanitz/samplingbook/issues
+Depends: pps, sampling, survey
+Suggests: testthat
+Description: Sampling procedures from the book 'Stichproben - Methoden und praktische Umsetzung mit R' by Goeran Kauermann and Helmut Kuechenhoff (2010).
+License: GPL (>= 2)
+LazyLoad: yes
+NeedsCompilation: no
+Repository: CRAN
+RoxygenNote: 6.1.1
