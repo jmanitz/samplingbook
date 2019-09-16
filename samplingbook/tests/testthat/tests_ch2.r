@@ -63,21 +63,17 @@ test_that('election poll example page 54: proportion estimation 2', {
 
 test_that('edge cases: proportion estimation', {
   
-  est1 <- Sprop(m=45, n=100, N=300)
-  est2 <- Sprop(m=2, n=100, N=300)
-  
-  expect_equal(est1$p, 0.45, tolerance=0.01)
-  expect_equal(est1$se, 0.0408, tolerance=0.001)
-  expect_equal(est1$nr$approx[1], 111)
-  expect_equal(est1$nr$approx[2], 159)
-  expect_equal(est1$nr$exact[1], 110)
-  expect_equal(est1$nr$exact[2], 161)
-  
-  expect_equal(est2$p, 0.02, tolerance=0.01)
-  expect_equal(est2$se, 0.0115, tolerance=0.001)
-  expect_equal(est2$nr$approx[1], 0)
-  expect_equal(est2$nr$approx[2], 12)
-  expect_equal(est2$nr$exact[1], 2)
-  expect_equal(est2$nr$exact[2], 19)
+  est5 <- Sprop(m = 10, n = 20, N = 20)
+
+  expect_equal(est5$p, 0.5, tolerance=0.01)
+  expect_equal(est5$nr$approx, c(10,10))
+  expect_equal(est5$nr$exact, c(10,10))
+
+  est6 <- Sprop(m = 50, n = 60, N = 61)
+
+  expect_equal(est6$p, 0.833, tolerance=0.01)
+  expect_equal(est6$se, 0.00621, tolerance=0.0001)
+  expect_equal(est6$nr$approx, c(51,51))
+  expect_equal(est6$nr$exact, c(50,51))
   
 })
