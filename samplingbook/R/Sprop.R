@@ -49,12 +49,12 @@ function(y, m, n=length(y), N=Inf, level=0.95){
     ugrex <- m
     # while prob fct for lower bound is larger than 1-alpha/2 (from 1-prob fct)
     while (phyper(m-1,ugrex,N-ugrex,n)>(level+1)/2) { ugrex=ugrex+1 } 
-    ugrex = ugrex-1
+    ugrex = max(ugrex - 1,m) # ugrex = ugrex-1
     #upper border: total number - number 0 in sample
     ogrex=N-(n-m)
     # while prob fct for upper bound is smaller than alpha/2
     while (phyper(m,ogrex,N-ogrex,n) < (1-level)/2) { ogrex=ogrex-1 }
-    ogrex = ogrex+1
+    ogrex = min(ogrex + 1,N - (n - m))  # ogrex = ogrex+1
     exact.anteil = c(ugrex/N, ogrex/N)
     exact.anzahl = c(ugrex, ogrex)
   }
