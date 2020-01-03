@@ -7,8 +7,7 @@ context('chapter 2: simple samples')
 test_that('toy example page 51: mean estimation', {
   data(pop)
   Y <- pop$Y
-  set.seed(93456)
-  y <- sample(x=Y, size=3)
+  y <- c(9,10,18)   #set.seed(93456); sample(x=Y, size=3)
   est <- Smean(y=y, N=length(Y))
 
   expect_equal(est$mean, 12.3, tolerance=0.1)
@@ -63,7 +62,7 @@ test_that('election poll example page 54: proportion estimation 2', {
 
 test_that('edge cases: proportion estimation', {
   
-  est5 <- Sprop(m = 10, n = 20, N = 20)
+  expect_warning(est5 <- Sprop(m = 10, n = 20, N = 20), "Standard error is 'NA'")
 
   expect_equal(est5$p, 0.5, tolerance=0.01)
   expect_equal(est5$nr$approx, c(10,10))

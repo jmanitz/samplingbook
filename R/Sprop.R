@@ -48,7 +48,7 @@ function(y, m, n=length(y), N=Inf, level=0.95){
     # lower border: start with smallest possible value (number 1 in sample)
     ugrex <- m
     # while prob fct for lower bound is larger than 1-alpha/2 (from 1-prob fct)
-    while (phyper(m-1,ugrex,N-ugrex,n)>(level+1)/2) { ugrex=ugrex+1 } 
+    while (phyper(m-1,ugrex,N-ugrex,n) >= (level+1)/2) { ugrex=ugrex+1 } 
     ugrex = max(ugrex - 1,m) # ugrex = ugrex-1
     #upper border: total number - number 0 in sample
     ogrex=N-(n-m)
