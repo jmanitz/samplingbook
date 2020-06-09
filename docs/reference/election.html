@@ -8,21 +8,29 @@
 
 <title>German Parliament Election Data — election • samplingbook</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,11 +38,11 @@
 
 
 
-<meta property="og:title" content="German Parliament Election Data — election" />
 
+<meta property="og:title" content="German Parliament Election Data — election" />
 <meta property="og:description" content="Data frame with number of citizens eligible to vote and results of the elections in 2002 and 2005 for the German Bundestag, the first chamber of the German
 parliament." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -48,9 +56,10 @@ parliament." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -64,7 +73,7 @@ parliament." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">samplingbook</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.4</span>
       </span>
     </div>
 
@@ -72,17 +81,33 @@ parliament." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+    </li>
+  </ul>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jmanitz/samplingbook/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -90,6 +115,7 @@ parliament." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -101,17 +127,16 @@ parliament." />
     </div>
 
     <div class="ref-description">
-    
     <p>Data frame with number of citizens eligible to vote and results of the elections in 2002 and 2005 for the German Bundestag, the first chamber of the German
 parliament.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>election</span>)</pre>
-        
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>election</span>)</pre>
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 299 observations (corresponding to constituencies) on the following 13 variables.</p><dl class='dl-horizontal'>
+    <p>A data frame with 299 observations (corresponding to constituencies) on the following 13 variables.</p><dl'>
     <dt><code>state</code></dt><dd><p>factor, the 16 German federal states</p></dd>
     <dt><code>eligible_02</code></dt><dd><p>number of citizens eligible to vote in 2002</p></dd> 
     <dt><code>SPD_02</code></dt><dd><p>a numeric vector, percentage for the Social Democrats SPD in 2002</p></dd>
@@ -125,8 +150,9 @@ parliament.</p>
     <dt><code>GREEN_05</code></dt><dd><p>a numeric vector, percentage for the Greens in 2005</p></dd>
     <dt><code>FDP_05</code></dt><dd><p>a numeric vector, percentage for the Liberal Party FDP in 2005</p></dd>
     <dt><code>LEFT_05</code></dt><dd><p>a numeric vector, percentage for the Left Party in 2005</p></dd>
-  </dl>
-    
+  
+</dl>
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>German Federal Elections</p>
@@ -141,21 +167,18 @@ candidates win what are known as 'overhang mandates' when the seats are being di
 <p>The data set provides the percentage of second votes for each party, which determines the number of
 seats each party gets in parliament. These percentages are calculated by the number of votes for a party divided by number
 of valid votes.</p>
-    
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p>The data is provided by the R package flexclust.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
 <p>Homepage of the Bundestag: http://www.bundestag.de.</p>  
 <p>Friedrich Leisch. A Toolbox for K-Centroids Cluster Analysis. Computational Statistics and Data Analysis, 51 (2), 526-544, 2006.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>election</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>election</span>)</div><div class='output co'>#&gt;                  state     eligible_02         SPD_02          UNION_02     
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>election</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>election</span>)</div><div class='output co'>#&gt;                  state     eligible_02         SPD_02          UNION_02     
 #&gt;  Nordrhein-Westfalen:64   Min.   :152670   Min.   :0.1785   Min.   :0.1285  
 #&gt;  Bayern             :45   1st Qu.:190152   1st Qu.:0.3337   1st Qu.:0.3075  
 #&gt;  Baden-Wuerttemberg :37   Median :206148   Median :0.3845   Median :0.3628  
@@ -189,20 +212,20 @@ of valid votes.</p>
 #&gt;                   </div><div class='input'>
 <span class='co'># 1) Draw a simple sample of size n=20</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>67396</span>)
-<span class='no'>index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>election</span>), <span class='kw'>size</span><span class='kw'>=</span><span class='no'>n</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>67396</span>)
+<span class='no'>index</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>election</span>), <span class='kw'>size</span><span class='kw'>=</span><span class='no'>n</span>)
 <span class='no'>sample1</span> <span class='kw'>&lt;-</span> <span class='no'>election</span>[<span class='no'>index</span>,]
-<span class='fu'><a href='Smean.html'>Smean</a></span>(<span class='no'>sample1</span>$<span class='no'>SPD_02</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>election</span>))</div><div class='output co'>#&gt; 
+<span class='fu'><a href='Smean.html'>Smean</a></span>(<span class='no'>sample1</span>$<span class='no'>SPD_02</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>election</span>))</div><div class='output co'>#&gt; 
 #&gt; Smean object: Sample mean estimate
 #&gt; With finite population correction: N=299
 #&gt; 
-#&gt; Mean estimate: 0.3956
-#&gt; Standard error: 0.0152
-#&gt; 95% confidence interval: [0.3658,0.4255]
+#&gt; Mean estimate: 0.3515
+#&gt; Standard error: 0.0165
+#&gt; 95% confidence interval: [0.3192,0.3839]
 #&gt; </div><div class='input'><span class='co'># true mean</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>)</div><div class='output co'>#&gt; [1] 0.3861344</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>)</div><div class='output co'>#&gt; [1] 0.3861344</div><div class='input'>
 <span class='co'># 2) Estimate sample size to forecast proportion of SPD in election of 2005</span>
-<span class='fu'><a href='sample.size.prop.html'>sample.size.prop</a></span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.01</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>), <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='sample.size.prop.html'>sample.size.prop</a></span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.01</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>), <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; Without finite population correction: N=Inf, precision e=0.01 and expected proportion P=0.3861
 #&gt; 
@@ -210,88 +233,49 @@ of valid votes.</p>
 #&gt; </div><div class='input'>
 <span class='co'># 3) Usage of previous knowledge by model based estimation</span>
 <span class='co'># draw sample of size n = 20</span>
-<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>election</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>67396</span>)
-<span class='no'>sample</span> <span class='kw'>&lt;-</span> <span class='no'>election</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sort'>sort</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>20</span>)),]
+<span class='no'>N</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>election</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>67396</span>)
+<span class='no'>sample</span> <span class='kw'>&lt;-</span> <span class='no'>election</span>[<span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>size</span><span class='kw'>=</span><span class='fl'>20</span>)),]
 <span class='co'># secondary information SPD in 2002</span>
-<span class='no'>X.mean</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>)
+<span class='no'>X.mean</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>)
 <span class='co'># forecast proportion of SPD in election of 2005</span>
 <span class='fu'><a href='mbes.html'>mbes</a></span>(<span class='no'>SPD_05</span> ~ <span class='no'>SPD_02</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>sample</span>, <span class='kw'>aux</span><span class='kw'>=</span><span class='no'>X.mean</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='no'>N</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>'all'</span>)</div><div class='output co'>#&gt; 
 #&gt; mbes object: Model Based Estimation of Population Mean
 #&gt; Population size N = 299, sample size n = 20
 #&gt; 
 #&gt; Values for auxiliary variable: 
-#&gt; X.mean.1 = 0.3861, x.mean.1 = 0.3956
+#&gt; X.mean.1 = 0.3861, x.mean.1 = 0.3515
 #&gt; ----------------------------------------------------------------
 #&gt; Simple Estimate
 #&gt; 
-#&gt; Mean estimate:  0.3429 
-#&gt; Standard error:  0.016 
+#&gt; Mean estimate:  0.3009 
+#&gt; Standard error:  0.0119 
 #&gt; 
-#&gt; 95% confidence interval [0.3115,0.3742]
+#&gt; 95% confidence interval [0.2775,0.3242]
 #&gt; 
 #&gt; ----------------------------------------------------------------
 #&gt; Difference Estimate
 #&gt; 
-#&gt; Mean estimate:  0.3334 
-#&gt; Standard error:  0.0078 
+#&gt; Mean estimate:  0.3355 
+#&gt; Standard error:  0.0088 
 #&gt; 
-#&gt; 95% confidence interval [0.3181,0.3486]
+#&gt; 95% confidence interval [0.3183,0.3526]
 #&gt; 
 #&gt; ----------------------------------------------------------------
 #&gt; Ratio Estimate
 #&gt; 
-#&gt; Mean estimate:  0.3346 
-#&gt; Standard error:  0.0077 
+#&gt; Mean estimate:  0.3305 
+#&gt; Standard error:  0.0072 
 #&gt; 
-#&gt; 95% confidence interval [0.3195,0.3498]
+#&gt; 95% confidence interval [0.3163,0.3447]
 #&gt; 
 #&gt; ----------------------------------------------------------------
 #&gt; Linear Regression Estimate
 #&gt; 
-#&gt; Mean estimate:  0.3341 
-#&gt; Standard error:  0.0079 
-#&gt; 
-#&gt; 95% confidence interval [0.3187,0.3496]
-#&gt; 
-#&gt; ----------------------------------------------------------------
-#&gt; Linear Regression Model:
-#&gt; Call:
-#&gt; lm(formula = formula, data = data)
-#&gt; 
-#&gt; Residuals:
-#&gt;      Min       1Q   Median       3Q      Max 
-#&gt; -0.06312 -0.01003  0.01472  0.01881  0.04947 
-#&gt; 
-#&gt; Coefficients:
-#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
-#&gt; (Intercept) -0.02110    0.04777  -0.442    0.664    
-#&gt; SPD_02       0.91999    0.11896   7.734 3.96e-07 ***
-#&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-#&gt; 
-#&gt; Residual standard error: 0.03657 on 18 degrees of freedom
-#&gt; Multiple R-squared:  0.7687,	Adjusted R-squared:  0.7558 
-#&gt; F-statistic: 59.81 on 1 and 18 DF,  p-value: 3.956e-07
-#&gt; </div><div class='input'><span class='co'># true value</span>
-<span class='no'>Y.mean</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_05</span>)
-<span class='no'>Y.mean</span></div><div class='output co'>#&gt; [1] 0.3426949</div><div class='input'><span class='co'># Use a second predictor variable</span>
-<span class='no'>X.mean2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>),<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/mean'>mean</a></span>(<span class='no'>election</span>$<span class='no'>GREEN_02</span>))
-<span class='co'># forecast proportion of SPD in election of 2005 with two predictors</span>
-<span class='fu'><a href='mbes.html'>mbes</a></span>(<span class='no'>SPD_05</span> ~ <span class='no'>SPD_02</span>+<span class='no'>GREEN_02</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>sample</span>, <span class='kw'>aux</span><span class='kw'>=</span><span class='no'>X.mean2</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='no'>N</span>, <span class='kw'>method</span><span class='kw'>=</span> <span class='st'>'regr'</span>)</div><div class='output co'>#&gt; 
-#&gt; mbes object: Model Based Estimation of Population Mean
-#&gt; Population size N = 299, sample size n = 20
-#&gt; 
-#&gt; Values for auxiliary variable: 
-#&gt; X.mean.1 = 0.3861, x.mean.1 = 0.3956
-#&gt; X.mean.2 = 0.0848, x.mean.2 = 0.0681
-#&gt; ----------------------------------------------------------------
-#&gt; Linear Regression Estimate
-#&gt; 
-#&gt; Mean estimate:  0.3466 
+#&gt; Mean estimate:  0.3223 
 #&gt; Standard error:  0.0063 
 #&gt; 
-#&gt; 95% confidence interval [0.3342,0.3589]
+#&gt; 95% confidence interval [0.31,0.3346]
 #&gt; 
 #&gt; ----------------------------------------------------------------
 #&gt; Linear Regression Model:
@@ -300,38 +284,67 @@ of valid votes.</p>
 #&gt; 
 #&gt; Residuals:
 #&gt;       Min        1Q    Median        3Q       Max 
-#&gt; -0.038297 -0.022665  0.000213  0.018181  0.059815 
+#&gt; -0.054727 -0.022938 -0.003066  0.027230  0.037138 
 #&gt; 
 #&gt; Coefficients:
 #&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
-#&gt; (Intercept) -0.07526    0.04152  -1.813  0.08761 .  
-#&gt; SPD_02       0.92815    0.09520   9.749 2.24e-08 ***
-#&gt; GREEN_02     0.74753    0.22414   3.335  0.00392 ** 
+#&gt; (Intercept)  0.08290    0.03137   2.643   0.0165 *  
+#&gt; SPD_02       0.62004    0.08729   7.103 1.28e-06 ***
 #&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #&gt; 
-#&gt; Residual standard error: 0.02926 on 17 degrees of freedom
-#&gt; Multiple R-squared:  0.8602,	Adjusted R-squared:  0.8437 
-#&gt; F-statistic: 52.28 on 2 and 17 DF,  p-value: 5.47e-08
+#&gt; Residual standard error: 0.02908 on 18 degrees of freedom
+#&gt; Multiple R-squared:  0.737,	Adjusted R-squared:  0.7224 
+#&gt; F-statistic: 50.45 on 1 and 18 DF,  p-value: 1.277e-06
+#&gt; </div><div class='input'><span class='co'># true value</span>
+<span class='no'>Y.mean</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_05</span>)
+<span class='no'>Y.mean</span></div><div class='output co'>#&gt; [1] 0.3426949</div><div class='input'><span class='co'># Use a second predictor variable</span>
+<span class='no'>X.mean2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>),<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>GREEN_02</span>))
+<span class='co'># forecast proportion of SPD in election of 2005 with two predictors</span>
+<span class='fu'><a href='mbes.html'>mbes</a></span>(<span class='no'>SPD_05</span> ~ <span class='no'>SPD_02</span>+<span class='no'>GREEN_02</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>sample</span>, <span class='kw'>aux</span><span class='kw'>=</span><span class='no'>X.mean2</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='no'>N</span>, <span class='kw'>method</span><span class='kw'>=</span> <span class='st'>'regr'</span>)</div><div class='output co'>#&gt; 
+#&gt; mbes object: Model Based Estimation of Population Mean
+#&gt; Population size N = 299, sample size n = 20
+#&gt; 
+#&gt; Values for auxiliary variable: 
+#&gt; X.mean.1 = 0.3861, x.mean.1 = 0.3515
+#&gt; X.mean.2 = 0.0848, x.mean.2 = 0.07
+#&gt; ----------------------------------------------------------------
+#&gt; Linear Regression Estimate
+#&gt; 
+#&gt; Mean estimate:  0.3291 
+#&gt; Standard error:  0.0051 
+#&gt; 
+#&gt; 95% confidence interval [0.3191,0.3391]
+#&gt; 
+#&gt; ----------------------------------------------------------------
+#&gt; Linear Regression Model:
+#&gt; Call:
+#&gt; lm(formula = formula, data = data)
+#&gt; 
+#&gt; Residuals:
+#&gt;       Min        1Q    Median        3Q       Max 
+#&gt; -0.037753 -0.016922 -0.004229  0.016320  0.048000 
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)  0.04326    0.02843   1.521  0.14652    
+#&gt; SPD_02       0.66001    0.07223   9.138 5.71e-08 ***
+#&gt; GREEN_02     0.36537    0.11489   3.180  0.00547 ** 
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; Residual standard error: 0.0237 on 17 degrees of freedom
+#&gt; Multiple R-squared:  0.8351,	Adjusted R-squared:  0.8157 
+#&gt; F-statistic: 43.06 on 2 and 17 DF,  p-value: 2.217e-07
 #&gt; </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#source">Source</a></li>
-
-      <li><a href="#references">References</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -339,13 +352,16 @@ of valid votes.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -2,7 +2,7 @@ Package: samplingbook
 Type: Package
 Title: Survey Sampling Procedures
 Version: 1.2.4
-Date: 2020-01-03
+Date: 2020-06-09
 Author: Juliane Manitz [aut,cre], Mark Hempelmann [ctb], Goeran Kauermann [ctb], Helmut Kuechenhoff [aut],  Shuai Shao [ctb], Cornelia Oberhauser [ctb], Nina Westerheide [ctb], Manuel Wiesenfarth [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>
 URL: http://www.samplingbook.manitz.org
@@ -15,4 +15,4 @@ License: GPL (>= 2)
 LazyLoad: yes
 NeedsCompilation: no
 Repository: CRAN
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

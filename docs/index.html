@@ -6,20 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Survey Sampling Procedures • samplingbook</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Survey Sampling Procedures">
-<meta property="og:description" content="Sampling procedures from the book 'Stichproben - Methoden
-        und praktische Umsetzung mit R' by Goeran Kauermann and Helmut
-        Kuechenhoff (2010).">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="Sampling procedures from the book Stichproben - Methoden und praktische Umsetzung mit R by Goeran Kauermann and Helmut Kuechenhoff (2010).">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">samplingbook</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.4</span>
       </span>
     </div>
 
@@ -40,15 +39,34 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+    </li>
+  </ul>
+</li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/jmanitz/samplingbook/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -57,18 +75,95 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="contents col-md-9">
-Sampling procedures from the book 'Stichproben - Methoden
-        und praktische Umsetzung mit R' by Goeran Kauermann and Helmut
-        Kuechenhoff (2010).
+<div id="samplingbook-package" class="section level2">
+<h2 class="hasAnchor">
+<a href="#samplingbook-package" class="anchor"></a><code>samplingbook</code> package</h2>
+<p>Sampling procedures from the book <a href="https://www.springer.com/de/book/9783642123177">‘Stichproben - Methoden und praktische Umsetzung mit R’</a> by Goeran Kauermann and Helmut Kuechenhoff (2010).</p>
+<p>The book introduces the basic principles for sampling and corresponding statistical analysis. The following topics are covered:</p>
+<ol>
+<li>Introduction of Basic Sampling Principles</li>
+<li>Simple Sample Methods</li>
+<li>Model-based Sampling</li>
+<li>Design-based Sampling: Horvitz-Thomson Estimate</li>
+<li>Grouping of Populations: Stratified and Cluster Sampling</li>
+<li>Methods with Multiple Phases</li>
+<li>Problems in Real-World Applications</li>
+</ol>
+<p>Each chapter concludes with exemplifying real-world applications in <code>R</code>, which utilize the functions from this R package.</p>
+<div id="installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h3>
+<p>You can install the latest production version from CRAN</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"samplingbook"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<p>or the current development version from GitHub</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"devtools"</span>)
+<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Pakillo/template"</span>)</pre></div>
+<p>Then, load the package</p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"samplingbook"</span>)</pre></div>
+</div>
+<div id="example-simple-sample-and-estimation-of-proportions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#example-simple-sample-and-estimation-of-proportions" class="anchor"></a>Example: Simple Sample and Estimation of Proportions</h3>
+<p>In a company with N=300 employees a survey was conducted regarding to improve working conditions. A random sample of n=100 employees was drawn and two questions were asked:</p>
+<ul>
+<li>Would you support more flexibility in your working hours?</li>
+<li>Would you support a possibility for child care within the company?</li>
+</ul>
+<p>The questions were answered with “yes” by 45 and 2 employees, respectively. Using <code><a href="reference/Sprop.html">samplingbook::Sprop()</a></code>, we can estimate the proportions of support in the entire company:</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/Sprop.html">Sprop</a></span>(<span class="kw">m</span><span class="kw">=</span><span class="fl">45</span>, <span class="kw">n</span><span class="kw">=</span><span class="fl">100</span>, <span class="kw">N</span><span class="kw">=</span><span class="fl">300</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## </span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">## Sprop object: Sample proportion estimate</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">## With finite population correction: N= 300 </span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">## </span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">## Proportion estimate:  0.45 </span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">## Standard error:  0.0408 </span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">## </span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">## 95% approximate hypergeometric confidence interval: </span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co">##  proportion: [0.37,0.53]</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="co">##  number in population: [111,159]</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="co">## 95% exact hypergeometric confidence interval: </span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="co">##  proportion: [0.3667,0.5367]</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="co">##  number in population: [110,161]</span></a></code></pre></div>
+<p>Thus, between 37% and 53% of all employees, thus between 111 and 159 persons, are estimated to support more flexible working hours.</p>
+<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/Sprop.html">Sprop</a></span>(<span class="kw">m</span><span class="kw">=</span><span class="fl">2</span>, <span class="kw">n</span><span class="kw">=</span><span class="fl">100</span>, <span class="kw">N</span><span class="kw">=</span><span class="fl">300</span>)</pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">## </span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">## Sprop object: Sample proportion estimate</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">## With finite population correction: N= 300 </span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">## </span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">## Proportion estimate:  0.02 </span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">## Standard error:  0.0115 </span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">## </span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">## 95% approximate hypergeometric confidence interval: </span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co">##  proportion: [-0.0025,0.0425]</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">##  number in population: [0,12]</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="co">## 95% exact hypergeometric confidence interval: </span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="co">##  proportion: [0.0033,0.0633]</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="co">##  number in population: [1,19]</span></a></code></pre></div>
+<p>On the other hand, the survey results that only between 1 and 19 employees would support child care within the company.</p>
+<p>The example shows, that in particular the for small proportion estimates, the calculations of exact confidence intervals using the hypergeometric distributions is more appropriate.</p>
+</div>
+<div id="contributions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#contributions" class="anchor"></a>Contributions:</h3>
+<ul>
+<li>Goeran Kauermann and Helmut Kuechenhoff for their guidance and ideas</li>
+<li>Cornelia Oberhauser for proof reading and testing</li>
+<li>Mark Hempelmann, Shuai Shao, Nina Westerheide, and Manuel Wiesenfarth for contributing source code</li>
+</ul>
+</div>
+</div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=samplingbook">https://​cloud.r-project.org/​package=samplingbook</a>
+</li>
+<li>Browse source code at <br><a href="https://github.com/jmanitz/samplingbook/">https://​github.com/​jmanitz/​samplingbook/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/jmanitz/samplingbook/issues">https://​github.com/​jmanitz/​samplingbook/​issues</a>
 </li>
@@ -90,17 +185,20 @@ Sampling procedures from the book 'Stichproben - Methoden
   </div>
 </div>
 
+
       <footer><div class="copyright">
   <p>Developed by Juliane Manitz.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

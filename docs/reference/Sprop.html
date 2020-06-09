@@ -8,21 +8,29 @@
 
 <title>Sampling Proportion Estimation — Sprop • samplingbook</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,13 +38,13 @@
 
 
 
-<meta property="og:title" content="Sampling Proportion Estimation — Sprop" />
 
+<meta property="og:title" content="Sampling Proportion Estimation — Sprop" />
 <meta property="og:description" content="The function Sprop estimates the proportion out of samples either with or without
   consideration of finite population correction. Different methods for calculating 
   confidence intervals for example based on binomial distribution (Agresti and 
   Coull or Clopper-Pearson) or based on hypergeometric distribution are used." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,9 +58,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -66,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">samplingbook</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.4</span>
       </span>
     </div>
 
@@ -74,17 +83,33 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+    </li>
+  </ul>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jmanitz/samplingbook/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -92,6 +117,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -103,16 +129,14 @@
     </div>
 
     <div class="ref-description">
-    
     <p>The function <code>Sprop</code> estimates the proportion out of samples either with or without
   consideration of finite population correction. Different methods for calculating 
   confidence intervals for example based on binomial distribution (Agresti and 
   Coull or Clopper-Pearson) or based on hypergeometric distribution are used.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>Sprop</span>(<span class='no'>y</span>, <span class='no'>m</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>y</span>), <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>Sprop</span>(<span class='no'>y</span>, <span class='no'>m</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>y</span>), <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -137,11 +161,10 @@
       <td><p>coverage probability for confidence intervals. Default is <code>level=0.95</code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>Sprop</code> can be called by usage of a data vector <code>y</code> with the observations 1 for event and 0 for failure. Moreover, it can be called by specifying the number of events <code>m</code> and trials <code>n</code>.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The function <code>Sprop</code> returns a value, which is a list consisting of the components</p>
@@ -153,51 +176,48 @@
     If the population is very large <code>N=Inf</code>, it is calculated <code>bin</code>, the binomial confidence interval, which is asymptotic, <code>cp</code> the exact confidence interval based on binomial distribution (Clopper-Pearson), and <code>ac</code>, the asymptotic confidence interval based on binomial distribution by Wilson (Agresti and Coull (1998)).</p></dd>
   <dt>nr</dt><dd><p>In case of finite population of size <code>N</code>, it is given a list of confidence interval boundaries for number in population with <code>approx</code>, the hypergeometric confidence interval with normal distribution approximation, and <code>exact</code>, the exact hypergeometric confidence interval.</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>  
 <p>Agresti, Alan/Coull, Brent A. (1998): Approximate Is Better than 'Exact' for Interval Estimation of Binomial Proportions. The American Statistician, Vol. 52, No. 2 , pp. 119-126.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='Smean.html'>Smean</a></code>, <code><a href='sample.size.prop.html'>sample.size.prop</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># 1) Survey in company to upgrade office climate</span>
 <span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>45</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; With finite population correction: N= 300 
+#&gt; With finite population correction: N = 300 
 #&gt; 
 #&gt; Proportion estimate:  0.45 
 #&gt; Standard error:  0.0408 
 #&gt; 
-#&gt; 95% approximate hypergeometric confidence interval: 
+#&gt; 95% approximate confidence interval: 
 #&gt;  proportion: [0.37,0.53]
 #&gt;  number in population: [111,159]
 #&gt; 95% exact hypergeometric confidence interval: 
 #&gt;  proportion: [0.3667,0.5367]
 #&gt;  number in population: [110,161]</div><div class='input'><span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>100</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; With finite population correction: N= 300 
+#&gt; With finite population correction: N = 300 
 #&gt; 
 #&gt; Proportion estimate:  0.02 
 #&gt; Standard error:  0.0115 
 #&gt; 
-#&gt; 95% approximate hypergeometric confidence interval: 
+#&gt; 95% approximate confidence interval: 
 #&gt;  proportion: [-0.0025,0.0425]
 #&gt;  number in population: [0,12]
 #&gt; 95% exact hypergeometric confidence interval: 
-#&gt;  proportion: [0.0033,0.0633]
-#&gt;  number in population: [1,19]</div><div class='input'>
+#&gt;  proportion: [0.0067,0.0633]
+#&gt;  number in population: [2,19]</div><div class='input'>
 <span class='co'># 2) German opinion poll for 03/07/09 with </span>
 <span class='co'># (http://www.wahlrecht.de/umfragen/politbarometer.htm)</span>
 <span class='co'># a) 302 of 1206 respondents who would elect SPD.</span>
 <span class='co'># b) 133 of 1206 respondents who would elect the Greens.</span>
 <span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>302</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>1206</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; Without finite population correction: N= Inf 
+#&gt; Without finite population correction: N = Inf 
 #&gt; 
 #&gt; Proportion estimate:  0.2504 
 #&gt; Standard error:  0.0125 
@@ -210,7 +230,7 @@
 #&gt;  proportion: [0.2262,0.2759]
 #&gt; </div><div class='input'><span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>133</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>1206</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; Without finite population correction: N= Inf 
+#&gt; Without finite population correction: N = Inf 
 #&gt; 
 #&gt; Proportion estimate:  0.1103 
 #&gt; Standard error:  0.009 
@@ -226,27 +246,27 @@
 <span class='co'># for 95% one sided confidence level use level=0.9</span>
 <span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>10000</span>, <span class='kw'>level</span><span class='kw'>=</span><span class='fl'>0.9</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; With finite population correction: N= 10000 
+#&gt; With finite population correction: N = 10000 
 #&gt; 
 #&gt; Proportion estimate:  0.002 
 #&gt; Standard error:  0.0019 
 #&gt; 
-#&gt; 90% approximate hypergeometric confidence interval: 
+#&gt; 90% approximate confidence interval: 
 #&gt;  proportion: [-0.0012,0.0052]
 #&gt;  number in population: [-12,52]
 #&gt; 90% exact hypergeometric confidence interval: 
 #&gt;  proportion: [1e-04,0.0093]
 #&gt;  number in population: [1,93]</div><div class='input'>
 <span class='co'># 4) call with data vector y</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>)
 <span class='fu'>Sprop</span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>y</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>200</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; With finite population correction: N= 200 
+#&gt; With finite population correction: N = 200 
 #&gt; 
 #&gt; Proportion estimate:  0.3846 
 #&gt; Standard error:  0.1358 
 #&gt; 
-#&gt; 95% approximate hypergeometric confidence interval: 
+#&gt; 95% approximate confidence interval: 
 #&gt;  proportion: [0.1185,0.6508]
 #&gt;  number in population: [24,130]
 #&gt; 95% exact hypergeometric confidence interval: 
@@ -254,38 +274,25 @@
 #&gt;  number in population: [28,136]</div><div class='input'><span class='co'># is the same as</span>
 <span class='fu'>Sprop</span>(<span class='kw'>m</span><span class='kw'>=</span><span class='fl'>5</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>13</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>200</span>)</div><div class='output co'>#&gt; 
 #&gt; Sprop object: Sample proportion estimate
-#&gt; With finite population correction: N= 200 
+#&gt; With finite population correction: N = 200 
 #&gt; 
 #&gt; Proportion estimate:  0.3846 
 #&gt; Standard error:  0.1358 
 #&gt; 
-#&gt; 95% approximate hypergeometric confidence interval: 
+#&gt; 95% approximate confidence interval: 
 #&gt;  proportion: [0.1185,0.6508]
 #&gt;  number in population: [24,130]
 #&gt; 95% exact hypergeometric confidence interval: 
 #&gt;  proportion: [0.14,0.68]
 #&gt;  number in population: [28,136]</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Juliane Manitz</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -293,13 +300,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

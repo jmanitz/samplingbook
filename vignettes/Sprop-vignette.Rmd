@@ -71,7 +71,7 @@ The implementation of the exact confidence interval for proportion estimates use
 
 <!--#phyper is based on calculating dhyper and phyper(...)/dhyper(...) (as a summation), based on ideas of Ian Smith and Morten Welinder.-->
 
-``` {r, echo=FALSE, fig.width=6, fig.height=4}
+``` {r, echo=FALSE, fig.width=7, fig.height=4}
 #par(mfrow=c(1,2))
 #M <- 50; curve(phyper(x, M, 500-M, 100), from=0,to=30, col="#E495A5", lwd=2, las=1,
 #               ylab="Distribution function, F(x)", main="Hyp(x, M, N-M, n) given N=500, n=100")
@@ -92,7 +92,7 @@ legend("bottomright", legend=paste0("M=",c(4,20,32)), col=c( "#E495A5","#86B875"
 
 We search for the optimal confidence boundaries $[L,U]$ that fulfill the requirements as defined in the equations above.  
 
-* Given of knows quantities total population $N$, sample size $n$ and number of successes in the sample $m$, we can define some feasibility boundaries for $M$:
+* Given known total population $N$, sample size $n$ and number of successes in the sample $m$, we can define some feasibility boundaries for $M$:
     + Naturally, the smallest possible value is the observed number of successes $M_{min} = m$
     + The largest possible value equals the total number $N$ minus negative observations in the sample, i.e. $M_{max} = N - (n-m)$.
 
