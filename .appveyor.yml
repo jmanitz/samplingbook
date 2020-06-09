@@ -1,0 +1,47 @@
+
+# Download script file from GitHub
+init:
+  ps: |
+        $ErrorActionPreference = "Stop"
+        Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
+        Import-Module '..\appveyor-tool.ps1'
+install:
+  - ps: Bootstrap
+  # Install maven and dependencies
+  #- ps: .\dev\appveyor-install-dependencies.ps1
+
+environment:
+  global:
+   WARNINGS_ARE_ERRORS: 0
+   USE_RTOOLS: true
+
+build_script:
+  - R -e  "0" --args --bootstrap-packrat
+
+test_script:
+  - travis-tool.sh install_deps
+  - travis-tool.sh run_tests
+
+cache:
+  - packages -> appveyor.yml    # or any other file
+  
+# on_failure:
+ # - travis-tool.sh dump_logs
+  ## push complete mboost.Rcheck folder as artifact
+ # - appveyor PushArtifact mboost.Rcheck
+
+artifacts:
+  - path: '*.Rcheck\**\*.log'
+    name: Logs
+
+  - path: '*.Rcheck\**\*.out'
+    name: Logs
+
+  - path: '*.Rcheck\**\*.fail'
+    name: Logs
+
+  - path: '*.Rcheck\**\*.Rout'
+    name: Logs
+
+  - path: '*_*.tar.gz'
+    name: Bits  
