@@ -1,6 +1,16 @@
 
 ## `samplingbook` package
 
+[![Build Status
+(Linux)](https://travis-ci.org/jmanitz/samplingbook.svg?branch=master)](https://travis-ci.org/jmanitz/samplingbook)
+[![Build status
+(Windows)](https://ci.appveyor.com/api/projects/status/github/jmanitz/samplingbook?branch=master&svg=true)](https://ci.appveyor.com/project/jmanitz/samplingbook/branch/master)
+[![CRAN Status
+Badge](http://www.r-pkg.org/badges/version/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
+[![Coverage
+Status](https://coveralls.io/repos/github/jmanitz/samplingbook/badge.svg?branch=master)](https://coveralls.io/github/jmanitz/samplingbook?branch=master)
+[![](http://cranlogs.r-pkg.org/badges/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
+
 Sampling procedures from the book [‘Stichproben - Methoden und
 praktische Umsetzung mit
 R’](https://www.springer.com/de/book/9783642123177) by Goeran
@@ -100,9 +110,34 @@ The example shows, that in particular the for small proportion
 estimates, the calculations of exact confidence intervals using the
 hypergeometric distributions is more appropriate.
 
-### Contributions:
+Some remarks on exact hypergeometric confidence intervals for proportion
+estimates can be found in the vignette
+
+``` r
+vignette(package="samplingbook")
+```
+
+    ## no vignettes found
+
+``` r
+vignette('Sprop-vignette')
+```
+
+    ## Warning: vignette 'Sprop-vignette' not found
+
+### Contributions
 
   - Goeran Kauermann and Helmut Kuechenhoff for their guidance and ideas
   - Cornelia Oberhauser for proof reading and testing
   - Mark Hempelmann, Shuai Shao, Nina Westerheide, and Manuel
     Wiesenfarth for contributing source code
+
+### Citation
+
+Juliane Manitz, Mark Hempelmann, Goeran Kauermann, Helmut Kuechenhoff,
+Shuai Shao, Cornelia Oberhauser, Nina Westerheide and Manuel Wiesenfarth
+(2020). samplingbook: Survey Sampling Procedures. R package version
+1.2.4. <https://CRAN.R-project.org/package=samplingbook>
+
+Use `toBibtex(citation("samplingbook"))` in R to extract BibTeX
+references.
