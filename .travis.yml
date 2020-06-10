@@ -9,14 +9,11 @@ R-versions:
 repos:
   CRAN: https://cloud.r-project.org
   
-r_github_packages:
-  - jimhester/covr
-  
-#after_failure:
-#  - ./travis-tool.sh dump_logs
+r_packages:
+  - covr
 
 after_success:
-  - Rscript -e 'library(covr); coveralls(type = "all")'
+  - Rscript -e 'library(covr); covr::codecov()'
 
 notifications:
   email:
