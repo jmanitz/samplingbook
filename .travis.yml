@@ -14,9 +14,6 @@ r_github_packages:
 #after_failure:
 #  - ./travis-tool.sh dump_logs
 
-codecov: true
-coveralls: true
-
 after_success:
   - Rscript -e 'covr::codecov()'
 
