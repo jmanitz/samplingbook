@@ -17,7 +17,6 @@ test_that('toy example page 51: mean estimation', {
 })
 
 # Sprop
-
 test_that('toy example page 53: proportion estimation', {
 
   est1 <- Sprop(m=45, n=100, N=300)
