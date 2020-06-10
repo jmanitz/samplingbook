@@ -1,7 +1,8 @@
 language: r
 cache: packages
 
-#Define multiple R-versions:
+#Define multiple 
+R-versions:
   - oldrel
   - release
 
