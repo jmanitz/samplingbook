@@ -1,8 +1,7 @@
 language: r
 cache: packages
 
-#Define multiple R-versions, one from bioconductor
-r:
+#Define multiple R-versions:
   - oldrel
   - release
 
@@ -14,6 +13,9 @@ r_github_packages:
   
 #after_failure:
 #  - ./travis-tool.sh dump_logs
+
+codecov: true
+coveralls: true
 
 after_success:
   - Rscript -e 'covr::codecov()'
