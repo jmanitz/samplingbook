@@ -15,7 +15,7 @@ r_github_packages:
 #  - ./travis-tool.sh dump_logs
 
 after_success:
-  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'library(covr); coveralls(type = "all")'
 
 notifications:
   email:
