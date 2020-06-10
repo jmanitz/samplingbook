@@ -121,19 +121,26 @@ estimates, the calculations of exact confidence intervals using the
 hypergeometric distributions is more appropriate.
 
 Some remarks on exact hypergeometric confidence intervals for proportion
-estimates can be found in the vignette
+estimates can be found in the vignette.
 
-``` r
+<!--
+
+```r
 vignette(package="samplingbook")
 ```
 
-    ## no vignettes found
+```
+## no vignettes found
+```
 
-``` r
+```r
 vignette('Sprop-vignette')
 ```
 
-    ## Warning: vignette 'Sprop-vignette' not found
+```
+## Warning: vignette 'Sprop-vignette' not found
+```
+-->
 
 ### Contributions
 

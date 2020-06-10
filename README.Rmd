@@ -73,12 +73,14 @@ On the other hand, the survey results that only between 1 and 19 employees would
 
 The example shows, that in particular the for small proportion estimates, the calculations of exact confidence intervals using the hypergeometric distributions is more appropriate. 
 
-Some remarks on exact hypergeometric confidence intervals for proportion estimates can be found in the vignette 
+Some remarks on exact hypergeometric confidence intervals for proportion estimates can be found in the vignette. 
 
+<!--
 ``` {r}
 vignette(package="samplingbook")
 vignette('Sprop-vignette')
 ```
+-->
 
 ### Contributions
 
