@@ -5,14 +5,21 @@
 (Linux)](https://travis-ci.org/jmanitz/samplingbook.svg?branch=master)](https://travis-ci.org/jmanitz/samplingbook)
 [![Build status
 (Windows)](https://ci.appveyor.com/api/projects/status/github/jmanitz/samplingbook?branch=master&svg=true)](https://ci.appveyor.com/project/jmanitz/samplingbook/branch/master)
-[![CRAN Status
-Badge](http://www.r-pkg.org/badges/version/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
 [![Coverage
 Status](https://coveralls.io/repos/github/jmanitz/samplingbook/badge.svg?branch=master)](https://coveralls.io/github/jmanitz/samplingbook?branch=master)
-[![](http://cranlogs.r-pkg.org/badges/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
 ![GitHub repo
 size](https://img.shields.io/github/repo-size/jmanitz/samplingbook)
-![CRAN/METACRAN](https://img.shields.io/cran/l/samplingbook)
+![GitHub
+issues](https://img.shields.io/github/issues/jmanitz/samplingbook)
+
+[![CRAN Status
+Badge](http://www.r-pkg.org/badges/version/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
+[![CRAN
+Downloads](http://cranlogs.r-pkg.org/badges/samplingbook)](https://CRAN.R-project.org/package=samplingbook)
+![CRAN License](https://img.shields.io/cran/l/samplingbook) ![CRAN
+dependencies
+status](https://img.shields.io/librariesio/release/CRAN/samplingbook)
+![Website](https://img.shields.io/website?url=http%3A%2F%2Fsamplingbook.manitz.org%2F)
 
 Sampling procedures from the book [‘Stichproben - Methoden und
 praktische Umsetzung mit
