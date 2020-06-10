@@ -17,7 +17,6 @@ test_that('toy example page 51: mean estimation', {
 })
 
 # Sprop
-
 test_that('toy example page 53: proportion estimation', {
 
   est1 <- Sprop(m=45, n=100, N=300)
@@ -74,5 +73,46 @@ test_that('edge cases: proportion estimation', {
   expect_equal(est6$se, 0.00621, tolerance=0.0001)
   expect_equal(est6$nr$approx, c(51,51))
   expect_equal(est6$nr$exact, c(50,51))
+  
+})
+
+# sample.size.mean
+test_that('example page 56: sample.size.mean', {
+  
+  n1 <- sample.size.mean(e=4, S=10, N=300)
+  expect_equal(n1$n, 23, tolerance=0.01)
+  
+  n2 <- sample.size.mean(e=1, S=10, N=300)
+  expect_equal(n2$n, 169, tolerance=0.01)
+  
+})
+
+# sample.size.prop
+test_that('election example page 57: sample.size.prop', {
+  
+  n3 <- sample.size.prop(e=0.01, P=0.5, N=Inf)
+  expect_equal(n3$n, 9604, tolerance=0.01)
+  
+  n4 <- sample.size.prop(e=0.01, P=0.39, N=Inf)
+  expect_equal(n4$n, 9139, tolerance=0.01)
+  
+})
+
+test_that('company survey example page 57: sample.size.prop', {
+  
+  n5 <- sample.size.prop(e=0.05, P=0.5, N=300)
+  expect_equal(n5$n, 169, tolerance=0.01)
+  
+  n6 <- sample.size.prop(e=0.1, P=0.2, N=10)
+  expect_equal(n6$n, 9, tolerance=0.01)
+  
+  n7 <- sample.size.prop(e=0.1, P=0.3, N=10)
+  expect_equal(n7$n, 9, tolerance=0.01)
+  
+  n8 <- sample.size.prop(e=0.1, P=0.4, N=10)
+  expect_equal(n8$n, 10, tolerance=0.01)
+  
+  n9 <- sample.size.prop(e=0.1, P=0.5, N=10)
+  expect_equal(n9$n, 10, tolerance=0.01)
   
 })
