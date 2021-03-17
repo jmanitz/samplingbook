@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,7 +129,7 @@
     <p>The function <code>sample.size.mean</code> returns the sample size needed for mean estimations either with or without consideration of finite population correction.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sample.size.mean</span>(<span class='no'>e</span>, <span class='no'>S</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</pre>
+    <pre class="usage"><span class='fu'>sample.size.mean</span><span class='op'>(</span><span class='va'>e</span>, <span class='va'>S</span>, N <span class='op'>=</span> <span class='cn'>Inf</span>, level <span class='op'>=</span> <span class='fl'>0.95</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,19 +161,24 @@
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Juliane Manitz</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='Smean.html'>Smean</a></code>, <code><a href='sample.size.prop.html'>sample.size.prop</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># sample size for precision e=4</span>
-<span class='fu'>sample.size.mean</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>4</span>,<span class='kw'>S</span><span class='kw'>=</span><span class='fl'>10</span>,<span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>sample.size.mean</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>4</span>,S<span class='op'>=</span><span class='fl'>10</span>,N<span class='op'>=</span><span class='fl'>300</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.mean object: Sample size for mean estimate
 #&gt; With finite population correction: N=300, precision e=4 and standard deviation S=10
 #&gt; 
 #&gt; Sample size needed: 23
 #&gt; </div><div class='input'><span class='co'># sample size for precision e=1</span>
-<span class='fu'>sample.size.mean</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>1</span>,<span class='kw'>S</span><span class='kw'>=</span><span class='fl'>10</span>,<span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>sample.size.mean</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>1</span>,S<span class='op'>=</span><span class='fl'>10</span>,N<span class='op'>=</span><span class='fl'>300</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.mean object: Sample size for mean estimate
 #&gt; With finite population correction: N=300, precision e=1 and standard deviation S=10
 #&gt; 
@@ -194,7 +199,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

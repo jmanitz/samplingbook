@@ -1,7 +1,7 @@
 pandoc: 2.7.2
-pkgdown: 1.5.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  Sprop-vignette: Sprop-vignette.html
-last_built: 2020-06-09T22:32Z
+  samplingbook-Sprop: samplingbook-Sprop.html
+last_built: 2021-03-17T00:00Z
 

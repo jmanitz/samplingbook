@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,12 +129,12 @@
     <p>Simulated tax refund data frame including the estimated and actual refund value</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>tax</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 9083 observations on the following 5 variables.</p><dl'>
+    <p>A data frame with 9083 observations on the following 5 variables.</p><dl>
     <dt><code>id</code></dt><dd><p>a numeric vector indicating the tax payer</p></dd>
     <dt><code>estRefund</code></dt><dd><p>a numeric vector representing the estimated value of tax refund by the tax payer</p></dd>
     <dt><code>actRefund</code></dt><dd><p>a numeric vector representing the actual tax refund calculated by the financial authority</p></dd>
@@ -150,13 +150,14 @@
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>tax</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>tax</span>)</div><div class='output co'>#&gt;        id         estRefund           actRefund              diff         
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;        id         estRefund           actRefund              diff         
 #&gt;  Min.   :   1   Min.   :     0.27   Min.   :     0.00   Min.   :     0.0  
 #&gt;  1st Qu.:2272   1st Qu.:   124.77   1st Qu.:    76.31   1st Qu.:     0.0  
 #&gt;  Median :4542   Median :   543.23   Median :   378.08   Median :     0.0  
 #&gt;  Mean   :4542   Mean   :  3842.28   Mean   :  3227.43   Mean   :   614.9  
-#&gt;  3rd Qu.:6812   3rd Qu.:  2246.07   3rd Qu.:  1756.24   3rd Qu.:     0.0  
+#&gt;  3rd Qu.:6812   3rd Qu.:  2246.06   3rd Qu.:  1756.24   3rd Qu.:     0.0  
 #&gt;  Max.   :9083   Max.   :200504.35   Max.   :178104.99   Max.   :129520.4  
 #&gt;     Class          
 #&gt;  Length:9083       
@@ -166,9 +167,10 @@
 #&gt;                    
 #&gt;                    </div><div class='input'>
 <span class='co'># illustration of stratamean</span>
-<span class='no'>nh</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>tax</span>$<span class='no'>Class</span>))
-<span class='no'>wh</span> <span class='kw'>&lt;-</span> <span class='no'>nh</span>/<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>nh</span>)
-<span class='fu'><a href='stratamean.html'>stratamean</a></span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>tax</span>$<span class='no'>diff</span>, <span class='kw'>h</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>(<span class='no'>tax</span>$<span class='no'>Class</span>), <span class='kw'>wh</span><span class='kw'>=</span><span class='no'>wh</span>, <span class='kw'>eae</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;                Mean          SE        CIu         CIo
+<span class='va'>nh</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>wh</span> <span class='op'>&lt;-</span> <span class='va'>nh</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>nh</span><span class='op'>)</span>
+<span class='fu'><a href='stratamean.html'>stratamean</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>diff</span>, h<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>, wh<span class='op'>=</span><span class='va'>wh</span>, eae<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                Mean          SE        CIu         CIo
 #&gt; 1          40.36435    1.623603   37.18214    43.54655
 #&gt; 2         480.43275   24.026405  433.34186   527.52364
 #&gt; 3        3840.83780  312.559990 3228.23147  4453.44412
@@ -189,7 +191,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,7 +129,7 @@
     <p>The function <code>stratamean</code> estimates the population mean out of stratified samples either with or without consideration of finite population correction.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>stratamean</span>(<span class='no'>y</span>, <span class='no'>h</span>, <span class='no'>Nh</span>, <span class='no'>wh</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>eae</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>stratamean</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>h</span>, <span class='va'>Nh</span>, <span class='va'>wh</span>, level <span class='op'>=</span> <span class='fl'>0.95</span>, eae <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,32 +174,38 @@
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Shuai Shao and Juliane Manitz</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='Smean.html'>Smean</a></code>, <code><a href='Sprop.html'>Sprop</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># random data</span>
-<span class='no'>testy</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>100</span>)
-<span class='no'>testh</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"male"</span>,<span class='fl'>40</span>), <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"female"</span>,<span class='fl'>60</span>))
-<span class='fu'>stratamean</span>(<span class='no'>testy</span>, <span class='no'>testh</span>, <span class='kw'>wh</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>))</div><div class='output co'>#&gt; 
+<span class='va'>testy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='va'>testh</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"male"</span>,<span class='fl'>40</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"female"</span>,<span class='fl'>60</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>stratamean</span><span class='op'>(</span><span class='va'>testy</span>, <span class='va'>testh</span>, wh<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; stratamean object: Stratified sample mean estimate
 #&gt; Without finite population correction.
 #&gt; Mean estimate: -0.0212
 #&gt; Standard error: 0.0992
 #&gt; 95% confidence interval: [-0.2157,0.1732]
-#&gt; </div><div class='input'><span class='fu'>stratamean</span>(<span class='no'>testy</span>, <span class='no'>testh</span>, <span class='kw'>wh</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='kw'>eae</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;                 Mean         SE        CIu       CIo
+#&gt; </div><div class='input'><span class='fu'>stratamean</span><span class='op'>(</span><span class='va'>testy</span>, <span class='va'>testh</span>, wh<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.5</span><span class='op'>)</span>, eae<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                 Mean         SE        CIu       CIo
 #&gt; female  -0.033409733 0.12415553 -0.2767501 0.2099306
 #&gt; male    -0.009039405 0.15477062 -0.3123842 0.2943054
 #&gt; overall -0.021224569 0.09920753 -0.2156678 0.1732186</div><div class='input'>
 <span class='co'># tax data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>tax</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>tax</span>)</div><div class='output co'>#&gt;        id         estRefund           actRefund              diff         
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;        id         estRefund           actRefund              diff         
 #&gt;  Min.   :   1   Min.   :     0.27   Min.   :     0.00   Min.   :     0.0  
 #&gt;  1st Qu.:2272   1st Qu.:   124.77   1st Qu.:    76.31   1st Qu.:     0.0  
 #&gt;  Median :4542   Median :   543.23   Median :   378.08   Median :     0.0  
 #&gt;  Mean   :4542   Mean   :  3842.28   Mean   :  3227.43   Mean   :   614.9  
-#&gt;  3rd Qu.:6812   3rd Qu.:  2246.07   3rd Qu.:  1756.24   3rd Qu.:     0.0  
+#&gt;  3rd Qu.:6812   3rd Qu.:  2246.06   3rd Qu.:  1756.24   3rd Qu.:     0.0  
 #&gt;  Max.   :9083   Max.   :200504.35   Max.   :178104.99   Max.   :129520.4  
 #&gt;     Class          
 #&gt;  Length:9083       
@@ -208,9 +214,10 @@
 #&gt;                    
 #&gt;                    
 #&gt;                    </div><div class='input'>
-<span class='no'>nh</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>tax</span>$<span class='no'>Class</span>))
-<span class='no'>wh</span> <span class='kw'>&lt;-</span> <span class='no'>nh</span>/<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>nh</span>)
-<span class='fu'>stratamean</span>(<span class='kw'>y</span><span class='kw'>=</span><span class='no'>tax</span>$<span class='no'>diff</span>, <span class='kw'>h</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>(<span class='no'>tax</span>$<span class='no'>Class</span>), <span class='kw'>wh</span><span class='kw'>=</span><span class='no'>wh</span>, <span class='kw'>eae</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div><div class='output co'>#&gt;                Mean          SE        CIu         CIo
+<span class='va'>nh</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>wh</span> <span class='op'>&lt;-</span> <span class='va'>nh</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>nh</span><span class='op'>)</span>
+<span class='fu'>stratamean</span><span class='op'>(</span>y<span class='op'>=</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>diff</span>, h<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span><span class='op'>(</span><span class='va'>tax</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>, wh<span class='op'>=</span><span class='va'>wh</span>, eae<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                Mean          SE        CIu         CIo
 #&gt; 1          40.36435    1.623603   37.18214    43.54655
 #&gt; 2         480.43275   24.026405  433.34186   527.52364
 #&gt; 3        3840.83780  312.559990 3228.23147  4453.44412
@@ -231,7 +238,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

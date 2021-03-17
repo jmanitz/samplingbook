@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,7 +129,7 @@
     <p>The function <code>stratasamp</code> calculates the sample size for each stratum depending on type of allocation.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>stratasamp</span>(<span class='no'>n</span>, <span class='no'>Nh</span>, <span class='kw'>Sh</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>Ch</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'prop'</span>)</pre>
+    <pre class="usage"><span class='fu'>stratasamp</span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>Nh</span>, Sh <span class='op'>=</span> <span class='cn'>NULL</span>, Ch <span class='op'>=</span> <span class='cn'>NULL</span>, type <span class='op'>=</span> <span class='st'>'prop'</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,15 +162,20 @@
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Shuai Shao and Juliane Manitz</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='stratamean.html'>stratamean</a></code>, <code><a href='stratasize.html'>stratasize</a></code>, <code><a href='sample.size.mean.html'>sample.size.mean</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#random proportional stratified sample</span>
-<span class='fu'>stratasamp</span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>Nh</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5234</span>,<span class='fl'>2586</span>,<span class='fl'>649</span>,<span class='fl'>157</span>))</div><div class='output co'>#&gt;                     
+<span class='fu'>stratasamp</span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>500</span>, Nh<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5234</span>,<span class='fl'>2586</span>,<span class='fl'>649</span>,<span class='fl'>157</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                     
 #&gt; Stratum   1   2  3 4
-#&gt; Size    303 150 38 9</div><div class='input'><span class='fu'>stratasamp</span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>Nh</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5234</span>,<span class='fl'>2586</span>,<span class='fl'>649</span>,<span class='fl'>157</span>), <span class='kw'>Sh</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>251</span>,<span class='fl'>1165</span>,<span class='fl'>8035</span>,<span class='fl'>24725</span>), <span class='kw'>type</span><span class='kw'>=</span><span class='st'>'opt'</span>)</div><div class='output co'>#&gt;                       
+#&gt; Size    303 150 38 9</div><div class='input'><span class='fu'>stratasamp</span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>500</span>, Nh<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5234</span>,<span class='fl'>2586</span>,<span class='fl'>649</span>,<span class='fl'>157</span><span class='op'>)</span>, Sh<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>251</span>,<span class='fl'>1165</span>,<span class='fl'>8035</span>,<span class='fl'>24725</span><span class='op'>)</span>, type<span class='op'>=</span><span class='st'>'opt'</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                       
 #&gt; Stratum  1   2   3   4
 #&gt; Size    49 112 194 145</div></pre>
   </div>
@@ -188,7 +193,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

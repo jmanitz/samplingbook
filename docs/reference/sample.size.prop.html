@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,7 +129,7 @@
     <p>The function <code>sample.size.prop</code> returns the sample size needed for proportion estimation either with or without consideration of finite population correction.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sample.size.prop</span>(<span class='no'>e</span>, <span class='kw'>P</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>Inf</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</pre>
+    <pre class="usage"><span class='fu'>sample.size.prop</span><span class='op'>(</span><span class='va'>e</span>, P <span class='op'>=</span> <span class='fl'>0.5</span>, N <span class='op'>=</span> <span class='cn'>Inf</span>, level <span class='op'>=</span> <span class='fl'>0.95</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,6 +164,9 @@
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Juliane Manitz</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='Sprop.html'>Sprop</a></code>, <code><a href='sample.size.mean.html'>sample.size.mean</a></code></p></div>
@@ -171,35 +174,41 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## 1) examples with different precisions</span>
 <span class='co'># precision 1% for election forecast of SPD in 2005</span>
-<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.01</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.01</span>, P<span class='op'>=</span><span class='fl'>0.5</span>, N<span class='op'>=</span><span class='cn'>Inf</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; Without finite population correction: N=Inf, precision e=0.01 and expected proportion P=0.5
 #&gt; 
 #&gt; Sample size needed: 9604
-#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>election</span>)
-<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.01</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span>(<span class='no'>election</span>$<span class='no'>SPD_02</span>), <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>election</span><span class='op'>)</span>
+<span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.01</span>, P<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>election</span><span class='op'>$</span><span class='va'>SPD_02</span><span class='op'>)</span>, N<span class='op'>=</span><span class='cn'>Inf</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; Without finite population correction: N=Inf, precision e=0.01 and expected proportion P=0.3861
 #&gt; 
 #&gt; Sample size needed: 9106
 #&gt; </div><div class='input'><span class='co'># precision 5% for questionnaire</span>
-<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.05</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.05</span>, P<span class='op'>=</span><span class='fl'>0.5</span>, N<span class='op'>=</span><span class='fl'>300</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; With finite population correction: N=300, precision e=0.05 and expected proportion P=0.5
 #&gt; 
 #&gt; Sample size needed: 169
-#&gt; </div><div class='input'><span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.05</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.05</span>, P<span class='op'>=</span><span class='fl'>0.5</span>, N<span class='op'>=</span><span class='cn'>Inf</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; Without finite population correction: N=Inf, precision e=0.05 and expected proportion P=0.5
 #&gt; 
 #&gt; Sample size needed: 385
 #&gt; </div><div class='input'><span class='co'># precision 10%</span>
-<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.1</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>300</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.1</span>, P<span class='op'>=</span><span class='fl'>0.5</span>, N<span class='op'>=</span><span class='fl'>300</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; With finite population correction: N=300, precision e=0.1 and expected proportion P=0.5
 #&gt; 
 #&gt; Sample size needed: 73
-#&gt; </div><div class='input'><span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.1</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='fl'>0.5</span>, <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>1000</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.1</span>, P<span class='op'>=</span><span class='fl'>0.5</span>, N<span class='op'>=</span><span class='fl'>1000</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; sample.size.prop object: Sample size for proportion estimate
 #&gt; With finite population correction: N=1000, precision e=0.1 and expected proportion P=0.5
 #&gt; 
@@ -207,34 +216,36 @@
 #&gt; </div><div class='input'>
 <span class='co'>## 2) tables in the book</span>
 <span class='co'># table 2.2</span>
-<span class='no'>P_vector</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>)
-<span class='no'>N_vector</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>1000</span>, <span class='fl'>10000</span>)
-<span class='no'>results</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>NA</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>4</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>4</span>)
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>P_vector</span>)){
-  <span class='kw'>for</span> (<span class='no'>j</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>N_vector</span>)){
-    <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='fl'>0.1</span>, <span class='kw'>P</span><span class='kw'>=</span><span class='no'>P_vector</span>[<span class='no'>i</span>], <span class='kw'>N</span><span class='kw'>=</span><span class='no'>N_vector</span>[<span class='no'>j</span>]))
-    <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)<span class='kw'>==</span><span class='st'>'try-error'</span>) {<span class='no'>results</span>[<span class='no'>i</span>,<span class='no'>j</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span>}
-    <span class='kw'>else</span> {<span class='no'>results</span>[<span class='no'>i</span>,<span class='no'>j</span>] <span class='kw'>&lt;-</span> <span class='no'>x</span>$<span class='no'>n</span>}
-  }
-}
-<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='no'>results</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>'P='</span>,<span class='no'>P_vector</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>''</span>), <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>'N='</span>,<span class='no'>N_vector</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>''</span>))
-<span class='no'>results</span></div><div class='output co'>#&gt;       N=10 N=100 N=1000 N=10000
+<span class='va'>P_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span><span class='op'>)</span>
+<span class='va'>N_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>1000</span>, <span class='fl'>10000</span><span class='op'>)</span>
+<span class='va'>results</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='cn'>NA</span>, ncol<span class='op'>=</span><span class='fl'>4</span>, nrow<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>P_vector</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'>for</span> <span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>N_vector</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='fl'>0.1</span>, P<span class='op'>=</span><span class='va'>P_vector</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, N<span class='op'>=</span><span class='va'>N_vector</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>==</span><span class='st'>'try-error'</span><span class='op'>)</span> <span class='op'>{</span><span class='va'>results</span><span class='op'>[</span><span class='va'>i</span>,<span class='va'>j</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span><span class='op'>}</span>
+    <span class='kw'>else</span> <span class='op'>{</span><span class='va'>results</span><span class='op'>[</span><span class='va'>i</span>,<span class='va'>j</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>x</span><span class='op'>$</span><span class='va'>n</span><span class='op'>}</span>
+  <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span><span class='op'>(</span><span class='va'>results</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>'P='</span>,<span class='va'>P_vector</span>, sep<span class='op'>=</span><span class='st'>''</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>'N='</span>,<span class='va'>N_vector</span>, sep<span class='op'>=</span><span class='st'>''</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>results</span>
+</div><div class='output co'>#&gt;       N=10 N=100 N=1000 N=10000
 #&gt; P=0.2    9    39     58      62
 #&gt; P=0.3    9    45     75      81
 #&gt; P=0.4   10    48     85      92
 #&gt; P=0.5   10    49     88      96</div><div class='input'><span class='co'># table 2.3</span>
-<span class='no'>P_vector</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.1</span>)
-<span class='no'>e_vector</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.05</span>, <span class='fl'>0.03</span>, <span class='fl'>0.02</span>, <span class='fl'>0.01</span>)
-<span class='no'>results</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>NA</span>, <span class='kw'>ncol</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>nrow</span><span class='kw'>=</span><span class='fl'>5</span>)
-<span class='kw'>for</span> (<span class='no'>i</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>e_vector</span>)){
-  <span class='kw'>for</span> (<span class='no'>j</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>P_vector</span>)){
-    <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>sample.size.prop</span>(<span class='kw'>e</span><span class='kw'>=</span><span class='no'>e_vector</span>[<span class='no'>i</span>], <span class='kw'>P</span><span class='kw'>=</span><span class='no'>P_vector</span>[<span class='no'>j</span>], <span class='kw'>N</span><span class='kw'>=</span><span class='fl'>Inf</span>))
-    <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>x</span>)<span class='kw'>==</span><span class='st'>'try-error'</span>) {<span class='no'>results</span>[<span class='no'>i</span>,<span class='no'>j</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span>}
-    <span class='kw'>else</span> {<span class='no'>results</span>[<span class='no'>i</span>,<span class='no'>j</span>] <span class='kw'>&lt;-</span> <span class='no'>x</span>$<span class='no'>n</span>}
-  }
-}
-<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span>(<span class='no'>results</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>'e='</span>,<span class='no'>e_vector</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>''</span>), <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>'P='</span>,<span class='no'>P_vector</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>''</span>))
-<span class='no'>results</span></div><div class='output co'>#&gt;        P=0.5 P=0.1
+<span class='va'>P_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>0.1</span><span class='op'>)</span>
+<span class='va'>e_vector</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.05</span>, <span class='fl'>0.03</span>, <span class='fl'>0.02</span>, <span class='fl'>0.01</span><span class='op'>)</span>
+<span class='va'>results</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='cn'>NA</span>, ncol<span class='op'>=</span><span class='fl'>2</span>, nrow<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>e_vector</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'>for</span> <span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>P_vector</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
+    <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'>sample.size.prop</span><span class='op'>(</span>e<span class='op'>=</span><span class='va'>e_vector</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, P<span class='op'>=</span><span class='va'>P_vector</span><span class='op'>[</span><span class='va'>j</span><span class='op'>]</span>, N<span class='op'>=</span><span class='cn'>Inf</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>==</span><span class='st'>'try-error'</span><span class='op'>)</span> <span class='op'>{</span><span class='va'>results</span><span class='op'>[</span><span class='va'>i</span>,<span class='va'>j</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span><span class='op'>}</span>
+    <span class='kw'>else</span> <span class='op'>{</span><span class='va'>results</span><span class='op'>[</span><span class='va'>i</span>,<span class='va'>j</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>x</span><span class='op'>$</span><span class='va'>n</span><span class='op'>}</span>
+  <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></span><span class='op'>(</span><span class='va'>results</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>'e='</span>,<span class='va'>e_vector</span>, sep<span class='op'>=</span><span class='st'>''</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>'P='</span>,<span class='va'>P_vector</span>, sep<span class='op'>=</span><span class='st'>''</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>results</span>
+</div><div class='output co'>#&gt;        P=0.5 P=0.1
 #&gt; e=0.1     97    35
 #&gt; e=0.05   385   139
 #&gt; e=0.03  1068   385
@@ -256,7 +267,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

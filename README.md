@@ -80,12 +80,12 @@ Sprop(m=45, n=100, N=300)
 
     ## 
     ## Sprop object: Sample proportion estimate
-    ## With finite population correction: N= 300 
+    ## With finite population correction: N = 300 
     ## 
     ## Proportion estimate:  0.45 
     ## Standard error:  0.0408 
     ## 
-    ## 95% approximate hypergeometric confidence interval: 
+    ## 95% approximate confidence interval: 
     ##  proportion: [0.37,0.53]
     ##  number in population: [111,159]
     ## 95% exact hypergeometric confidence interval: 
@@ -101,17 +101,17 @@ Sprop(m=2, n=100, N=300)
 
     ## 
     ## Sprop object: Sample proportion estimate
-    ## With finite population correction: N= 300 
+    ## With finite population correction: N = 300 
     ## 
     ## Proportion estimate:  0.02 
     ## Standard error:  0.0115 
     ## 
-    ## 95% approximate hypergeometric confidence interval: 
+    ## 95% approximate confidence interval: 
     ##  proportion: [-0.0025,0.0425]
     ##  number in population: [0,12]
     ## 95% exact hypergeometric confidence interval: 
-    ##  proportion: [0.0033,0.0633]
-    ##  number in population: [1,19]
+    ##  proportion: [0.0067,0.0633]
+    ##  number in population: [2,19]
 
 On the other hand, the survey results that only between 1 and 19
 employees would support child care within the company.

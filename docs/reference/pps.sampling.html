@@ -95,7 +95,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Sprop-vignette.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
+      <a href="../articles/samplingbook-Sprop.html">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</a>
     </li>
   </ul>
 </li>
@@ -129,7 +129,7 @@
     <p>The function provides sample techniques with sampling probabilities which are proportional to the size of a quantity z.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pps.sampling</span>(<span class='no'>z</span>, <span class='no'>n</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='no'>N</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>'sampford'</span>, <span class='kw'>return.PI</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>pps.sampling</span><span class='op'>(</span><span class='va'>z</span>, <span class='va'>n</span>, id <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>N</span>, method <span class='op'>=</span> <span class='st'>'sampford'</span>, return.PI <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,17 +172,21 @@
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Kauermann, Goeran/Kuechenhoff, Helmut (2010): Stichproben. Methoden und praktische Umsetzung mit R. Springer.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Juliane Manitz</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='htestimate.html'>htestimate</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## 1) simple suppositious example</span>
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>7</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.8</span>, <span class='fl'>2</span> ,<span class='fl'>3.2</span> ,<span class='fl'>2.9</span> ,<span class='fl'>1.5</span> ,<span class='fl'>2.0</span> ,<span class='fl'>2.2</span>))
+<span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>id <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span>, z <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.8</span>, <span class='fl'>2</span> ,<span class='fl'>3.2</span> ,<span class='fl'>2.9</span> ,<span class='fl'>1.5</span> ,<span class='fl'>2.0</span> ,<span class='fl'>2.2</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'># Usage of pps.sampling for Sampford method</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>178209</span>)
-<span class='no'>pps.sample_sampford</span> <span class='kw'>&lt;-</span> <span class='fu'>pps.sampling</span>(<span class='kw'>z</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>z</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>'sampford'</span>, <span class='kw'>return.PI</span><span class='kw'>=</span><span class='fl'>FALSE</span>)
-<span class='no'>pps.sample_sampford</span></div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>178209</span><span class='op'>)</span>
+<span class='va'>pps.sample_sampford</span> <span class='op'>&lt;-</span> <span class='fu'>pps.sampling</span><span class='op'>(</span>z<span class='op'>=</span><span class='va'>data</span><span class='op'>$</span><span class='va'>z</span>, n<span class='op'>=</span><span class='fl'>2</span>, method<span class='op'>=</span><span class='st'>'sampford'</span>, return.PI<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>pps.sample_sampford</span>
+</div><div class='output co'>#&gt; 
 #&gt; pps.sampling object: Sample with probabilities proportional to size
 #&gt; Method of Sampford:
 #&gt; 
@@ -193,11 +197,13 @@
 #&gt;            [,1]       [,2]
 #&gt; [1,] 0.41025641 0.07281474
 #&gt; [2,] 0.07281474 0.28205128</div><div class='input'><span class='co'># sampling elements</span>
-<span class='no'>id.sample</span> <span class='kw'>&lt;-</span> <span class='no'>pps.sample_sampford</span>$<span class='no'>sample</span>
-<span class='no'>id.sample</span></div><div class='output co'>#&gt; [1] 3 7</div><div class='input'><span class='co'># other methods</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>178209</span>)
-<span class='no'>pps.sample_tille</span> <span class='kw'>&lt;-</span> <span class='fu'>pps.sampling</span>(<span class='kw'>z</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>z</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>'tille'</span>)
-<span class='no'>pps.sample_tille</span></div><div class='output co'>#&gt; 
+<span class='va'>id.sample</span> <span class='op'>&lt;-</span> <span class='va'>pps.sample_sampford</span><span class='op'>$</span><span class='va'>sample</span>
+<span class='va'>id.sample</span>
+</div><div class='output co'>#&gt; [1] 3 7</div><div class='input'><span class='co'># other methods</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>178209</span><span class='op'>)</span>
+<span class='va'>pps.sample_tille</span> <span class='op'>&lt;-</span> <span class='fu'>pps.sampling</span><span class='op'>(</span>z<span class='op'>=</span><span class='va'>data</span><span class='op'>$</span><span class='va'>z</span>, n<span class='op'>=</span><span class='fl'>2</span>, method<span class='op'>=</span><span class='st'>'tille'</span><span class='op'>)</span>
+<span class='va'>pps.sample_tille</span>
+</div><div class='output co'>#&gt; 
 #&gt; pps.sampling object: Sample with probabilities proportional to size
 #&gt; Method of Tille:
 #&gt; 
@@ -207,9 +213,10 @@
 #&gt; Sample probabilities: 
 #&gt;            [,1]       [,2]
 #&gt; [1,] 0.23076923 0.05955335
-#&gt; [2,] 0.05955335 0.41025641</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>178209</span>)
-<span class='no'>pps.sample_midzuno</span> <span class='kw'>&lt;-</span> <span class='fu'>pps.sampling</span>(<span class='kw'>z</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>z</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>'midzuno'</span>)
-<span class='no'>pps.sample_midzuno</span></div><div class='output co'>#&gt; 
+#&gt; [2,] 0.05955335 0.41025641</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>178209</span><span class='op'>)</span>
+<span class='va'>pps.sample_midzuno</span> <span class='op'>&lt;-</span> <span class='fu'>pps.sampling</span><span class='op'>(</span>z<span class='op'>=</span><span class='va'>data</span><span class='op'>$</span><span class='va'>z</span>, n<span class='op'>=</span><span class='fl'>2</span>, method<span class='op'>=</span><span class='st'>'midzuno'</span><span class='op'>)</span>
+<span class='va'>pps.sample_midzuno</span>
+</div><div class='output co'>#&gt; 
 #&gt; pps.sampling object: Sample with probabilities proportional to size
 #&gt; Method of Midzuno:
 #&gt; 
@@ -219,8 +226,10 @@
 #&gt; Sample probabilities: 
 #&gt;            [,1]       [,2]
 #&gt; [1,] 0.41025641 0.08974359
-#&gt; [2,] 0.08974359 0.37179487</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>178209</span>)
-<span class='no'>pps.sample_madow</span> <span class='kw'>&lt;-</span> <span class='fu'>pps.sampling</span>(<span class='kw'>z</span><span class='kw'>=</span><span class='no'>data</span>$<span class='no'>z</span>, <span class='kw'>n</span><span class='kw'>=</span><span class='fl'>2</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>'madow'</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Systematic Sample with zeros in 'PI': For calculating estimates use approximate methods.</span></div><div class='input'><span class='no'>pps.sample_madow</span></div><div class='output co'>#&gt; 
+#&gt; [2,] 0.08974359 0.37179487</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>178209</span><span class='op'>)</span>
+<span class='va'>pps.sample_madow</span> <span class='op'>&lt;-</span> <span class='fu'>pps.sampling</span><span class='op'>(</span>z<span class='op'>=</span><span class='va'>data</span><span class='op'>$</span><span class='va'>z</span>, n<span class='op'>=</span><span class='fl'>2</span>, method<span class='op'>=</span><span class='st'>'madow'</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Systematic Sample with zeros in 'PI': For calculating estimates use approximate methods.</span></div><div class='input'><span class='va'>pps.sample_madow</span>
+</div><div class='output co'>#&gt; 
 #&gt; pps.sampling object: Sample with probabilities proportional to size
 #&gt; Method of Madow:
 #&gt; 
@@ -232,8 +241,9 @@
 #&gt; [1,] 0.4102564 0.2307692
 #&gt; [2,] 0.2307692 0.2564103</div><div class='input'>
 <span class='co'>## 2) influenza</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>influenza</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>influenza</span>)</div><div class='output co'>#&gt;        id                        district     population          cases       
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>influenza</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>influenza</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;        id                        district     population          cases       
 #&gt;  Min.   : 1001   LK Aachen           :  1   Min.   :  34719   Min.   :  0.00  
 #&gt;  1st Qu.: 5877   LK Ahrweiler        :  1   1st Qu.: 104553   1st Qu.:  9.00  
 #&gt;  Median : 8331   LK Aichach-Friedberg:  1   Median : 145130   Median : 27.00  
@@ -241,9 +251,10 @@
 #&gt;  3rd Qu.: 9778   LK Altenburger Land :  1   3rd Qu.: 244154   3rd Qu.: 59.00  
 #&gt;  Max.   :16077   LK Altenkirchen     :  1   Max.   :1770629   Max.   :410.00  
 #&gt;                  (Other)             :418                                     </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>108506</span>)
-<span class='no'>pps</span> <span class='kw'>&lt;-</span> <span class='fu'>pps.sampling</span>(<span class='kw'>z</span><span class='kw'>=</span><span class='no'>influenza</span>$<span class='no'>population</span>,<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>20</span>,<span class='kw'>method</span><span class='kw'>=</span><span class='st'>'midzuno'</span>)
-<span class='no'>pps</span></div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>108506</span><span class='op'>)</span>
+<span class='va'>pps</span> <span class='op'>&lt;-</span> <span class='fu'>pps.sampling</span><span class='op'>(</span>z<span class='op'>=</span><span class='va'>influenza</span><span class='op'>$</span><span class='va'>population</span>,n<span class='op'>=</span><span class='fl'>20</span>,method<span class='op'>=</span><span class='st'>'midzuno'</span><span class='op'>)</span>
+<span class='va'>pps</span>
+</div><div class='output co'>#&gt; 
 #&gt; pps.sampling object: Sample with probabilities proportional to size
 #&gt; Method of Midzuno:
 #&gt; 
@@ -335,8 +346,9 @@
 #&gt; [17,] 0.0005460989 0.0116140248 0.002790485 0.0002041539 0.000980808
 #&gt; [18,] 0.0118102439 0.0027904849 0.242136509 0.0048028196 0.020421365
 #&gt; [19,] 0.0009388111 0.0002041539 0.004802820 0.0199937150 0.001687221
-#&gt; [20,] 0.0041081542 0.0009808080 0.020421365 0.0016872205 0.086701381</div><div class='input'><span class='no'>sample</span> <span class='kw'>&lt;-</span> <span class='no'>influenza</span>[<span class='no'>pps</span>$<span class='no'>sample</span>,]
-<span class='no'>sample</span></div><div class='output co'>#&gt;        id            district population cases
+#&gt; [20,] 0.0041081542 0.0009808080 0.020421365 0.0016872205 0.086701381</div><div class='input'><span class='va'>sample</span> <span class='op'>&lt;-</span> <span class='va'>influenza</span><span class='op'>[</span><span class='va'>pps</span><span class='op'>$</span><span class='va'>sample</span>,<span class='op'>]</span>
+<span class='va'>sample</span>
+</div><div class='output co'>#&gt;        id            district population cases
 #&gt; 35   5554           LK Borken     370196    86
 #&gt; 83   8117       LK Goeppingen     255807    67
 #&gt; 107  3254       LK Hildesheim     288623    85
@@ -372,7 +384,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
