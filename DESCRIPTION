@@ -8,7 +8,7 @@ Maintainer: Juliane Manitz <r@manitz.org>
 URL: https://www.samplingbook.manitz.org
 BugReports: https://github.com/jmanitz/samplingbook/issues
 Depends: pps, sampling, survey
-Suggests: testthat, knitr, covr
+Suggests: testthat, knitr
 VignetteBuilder: knitr
 Description: Sampling procedures from the book 'Stichproben - Methoden und praktische Umsetzung mit R' by Goeran Kauermann and Helmut Kuechenhoff (2010).
 License: GPL (>= 2)
