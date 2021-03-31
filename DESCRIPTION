@@ -5,7 +5,7 @@ Version: 1.2.4
 Date: 2021-03-16
 Author: Juliane Manitz [aut,cre], Mark Hempelmann [ctb], Goeran Kauermann [ctb], Helmut Kuechenhoff [aut],  Shuai Shao [ctb], Cornelia Oberhauser [ctb], Nina Westerheide [ctb], Manuel Wiesenfarth [ctb]
 Maintainer: Juliane Manitz <r@manitz.org>
-URL: http://www.samplingbook.manitz.org
+URL: https://www.samplingbook.manitz.org
 BugReports: https://github.com/jmanitz/samplingbook/issues
 Depends: pps, sampling, survey
 Suggests: testthat, knitr, covr
