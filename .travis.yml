@@ -3,7 +3,7 @@ cache: packages
 
 #Define multiple R-versions:
 #  - oldrel
-#  - release
+  - release
 
 repos:
   CRAN: https://cloud.r-project.org
