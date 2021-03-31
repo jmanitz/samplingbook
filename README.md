@@ -6,7 +6,7 @@
 [![Build status
 (Windows)](https://ci.appveyor.com/api/projects/status/github/jmanitz/samplingbook?branch=master&svg=true)](https://ci.appveyor.com/project/jmanitz/samplingbook/branch/master)
 [![Coverage
-Status](https://coveralls.io/repos/github/jmanitz/samplingbook/badge.svg?branch=master)](https://coveralls.io/github/jmanitz/samplingbook?branch=master)
+Status](https://coveralls.io/repos/github/jmanitz/samplingbook/badge.svg)](https://coveralls.io/github/jmanitz/samplingbook)
 ![GitHub repo
 size](https://img.shields.io/github/repo-size/jmanitz/samplingbook)
 ![GitHub
