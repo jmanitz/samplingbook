@@ -3,14 +3,14 @@ cache: packages
 
 #Define multiple R-versions:
 r:
-#  - oldrel
+  - oldrel
   - release
 
 repos:
   CRAN: https://cloud.r-project.org
   
-r_packages:
-  - covr
+r_github_packages:
+  - jimhester/covr
 
 after_success:
   - Rscript -e 'library(covr); coveralls(type = "all")'
