@@ -2,8 +2,8 @@ language: r
 cache: packages
 
 #Define multiple R-versions:
-  - oldrel
-  - release
+#  - oldrel
+#  - release
 
 repos:
   CRAN: https://cloud.r-project.org
@@ -12,7 +12,7 @@ r_packages:
   - covr
 
 after_success:
-  - Rscript -e 'library(covr); covr::codecov(type = "all")'
+  - Rscript -e 'library(covr); coveralls(type = "all")'
 
 #after_failure:
 #  - ./travis-tool.sh dump_logs
