@@ -47,14 +47,14 @@ function(y, m, n=length(y), N=Inf, level=0.95){
   #exact procedure
     # lower border: start with smallest possible value (number 1 in sample)
     ugrex <- m
-    # while prob fct for lower bound is larger than 1-alpha/2 (from 1-prob fct)
-    while (phyper(m-1,ugrex,N-ugrex,n) >= (level+1)/2) { ugrex=ugrex+1 } 
-    ugrex = max(ugrex - 1,m) # ugrex = ugrex-1
+    # find ugrex = min{M: Pr(X>=x|M) <= alpha/2}, i.e. the smallest lower bound at which we cannot reject H0: M=ugrex vs. H1: M!=ugrex
+    while (1-phyper(m,ugrex,N-ugrex,n)+dhyper(m,ugrex,N-ugrex,n) <= (1-level)/2) { ugrex=ugrex+1 } 
+    #ugrex = max(ugrex - 1,m) # ugrex = ugrex-1
     #upper border: total number - number 0 in sample
     ogrex=N-(n-m)
-    # while prob fct for upper bound is smaller than alpha/2
-    while (phyper(m,ogrex,N-ogrex,n) < (1-level)/2) { ogrex=ogrex-1 }
-    ogrex = min(ogrex + 1,N - (n - m))  # ogrex = ogrex+1
+    # find ogrex = max{M: Pr(X<=x|M) > alpha/2, i.e. the largest upper bound at which we cannot reject H0: M=ogrex vs. H1: M!=ogrex
+    while (phyper(m,ogrex,N-ogrex,n) <= (1-level)/2) { ogrex=ogrex-1 }
+    #ogrex = min(ogrex + 1,N - (n - m))  # ogrex = ogrex+1
     exact.anteil = c(ugrex/N, ogrex/N)
     exact.anzahl = c(ugrex, ogrex)
   }
