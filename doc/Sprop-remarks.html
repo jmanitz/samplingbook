@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Juliane Manitz" />
+
+<meta name="date" content="2021-04-02" />
+
+<title>Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</h1>
+<h4 class="author">Juliane Manitz</h4>
+<h4 class="date">2021-04-02</h4>
+
+
+
+<p>In survey sampling on a finite population, a simple random sample is typically selected without replacement, in which case a hypergeometric distribution models the observation. A standard construction for the confidence interval is based on a Normal approximation of the proportion with plug-in estimates for proportion and respective variance.</p>
+<p>In most scenarios, this strategy results in satisfactory properties. However, if <span class="math inline">\(p\)</span> is close to 0 or 1, it is recommended to use the exact confidence interval based on the hypergeometrical distribution <span class="citation">(Kauermann and Kuechenhoff <a href="#ref-kuechenhoff" role="doc-biblioref">2010</a>)</span>. The Wald-type interval has a coverage probability as low as <span class="math inline">\(n/N\)</span> for any <span class="math inline">\(\alpha\)</span> <span class="citation">(Wang <a href="#ref-wang2015" role="doc-biblioref">2015</a>)</span>. Therefore, there is no guarantee for the interval to capture the true <span class="math inline">\(M\)</span> with the desired confidence level if the sample is much smaller than the population <span class="citation">(Wang <a href="#ref-wang2015" role="doc-biblioref">2015</a>)</span>.</p>
+<div id="implementation-in-samplingbook" class="section level2">
+<h2>Implementation in <code>samplingbook</code></h2>
+<p>The function <code>samplingbook::Sprop()</code> estimates the proportion out of samples either with or without consideration of finite population correction.</p>
+<p>Parameters are</p>
+<ul>
+<li><code>m</code> an optional non-negative integer for number of positive events,</li>
+<li><code>n</code> an optional positive integer for sample size,</li>
+<li><code>N</code> positive integer for population size. Default is <code>N=Inf</code>, which means calculations are carried out without finite population correction.</li>
+</ul>
+<p>In case of finite population of size <code>N</code> is provided, different methods for calculating confidence intervals are provided</p>
+<ul>
+<li><code>approx</code> Wald-type interval based on normal approximation <span class="citation">(Agresti and Coull <a href="#ref-agresti1998" role="doc-biblioref">1998</a>)</span>, and</li>
+<li><code>exact</code> based on hypergeometric distribution as described in more detail in this document.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">Sprop</span>(<span class="dt">m=</span><span class="dv">3</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">N =</span> <span class="dv">50</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">#&gt; Sprop object: Sample proportion estimate</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">#&gt; With finite population correction: N = 50 </span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt; Proportion estimate:  0.3 </span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; Standard error:  0.1366 </span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt; 95% approximate confidence interval: </span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt;  proportion: [0.0322,0.5678]</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt;  number in population: [2,28]</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">#&gt; 95% exact hypergeometric confidence interval: </span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt;  proportion: [0.08,0.64]</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt;  number in population: [4,32]</span></a></code></pre></div>
+</div>
+<div id="exact-hypergeometric-confidence-intervals" class="section level2">
+<h2>Exact Hypergeometric Confidence Intervals</h2>
+<p>We observe <span class="math inline">\(X=m\)</span>, the number of sampled units having the characteristic of interest, where <span class="math inline">\(X \sim Hyper(M, N, n)\)</span>, with</p>
+<ul>
+<li><span class="math inline">\(N\)</span> is the population size,</li>
+<li><span class="math inline">\(M\)</span> is the number of population units with characteristic of interest, and</li>
+<li><span class="math inline">\(n\)</span> is the given sample size.</li>
+</ul>
+<p>The respective density, i.e. the probability of successes in a sample given <span class="math inline">\(M, N, n\)</span>, is <span class="math display">\[\Pr(X=m) = \frac{{M \choose m} {N-M \choose n-m}}{N \choose n}, \text{ with  support }m \in \{\max(0,n+M-N), \min(M,n)\} \]</span></p>
+<p>We want to estimate population proportion <span class="math inline">\(p = M/N\)</span>, which is equivalent to estimating <span class="math inline">\(M\)</span>, the total number of population units with some attribute of interest. Then, the boundaries for the exact confidence interval <span class="math inline">\([L,U]\)</span> can be derived as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(X \leq m) &amp; = \sum_{x=0}^m  \frac{{U \choose x} {N-U \choose n-x}}{N \choose n} = \alpha_1 \\
+\Pr(X \geq m) &amp; = \sum_{x=m}^n  \frac{{L \choose x} {N-L \choose n-x}}{N \choose n} = \alpha_2,\\
+&amp; \text{with coverage constraint } \alpha_1 + \alpha_2 \leq \alpha
+\end{aligned}
+\]</span> For sake of simplicity, we assume symmetric confidence intervals, i.e <span class="math inline">\(\alpha_1 = \alpha_2 = \alpha/2\)</span>.</p>
+</div>
+<div id="some-details-on-the-implementation" class="section level2">
+<h2>Some Details on the Implementation</h2>
+<p>The implementation of the exact confidence interval for proportion estimates uses the hypergeometric distribution function <code>phyper(x, M, N-M, n)</code>. Note that the parametrization differs slightly from ours.</p>
+<!--#phyper is based on calculating dhyper and phyper(...)/dhyper(...) (as a summation), based on ideas of Ian Smith and Morten Welinder.-->
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>We search for the optimal confidence boundaries <span class="math inline">\([L,U]\)</span> that fulfill the requirements as defined in the equations above.</p>
+<ul>
+<li>Given known total population <span class="math inline">\(N\)</span>, sample size <span class="math inline">\(n\)</span> and number of successes in the sample <span class="math inline">\(m\)</span>, we can define some feasibility boundaries for <span class="math inline">\(M\)</span>:
+<ul>
+<li>Naturally, the smallest possible value is the observed number of successes <span class="math inline">\(M_{min} = m\)</span></li>
+<li>The largest possible value equals the total number <span class="math inline">\(N\)</span> minus negative observations in the sample, i.e. <span class="math inline">\(M_{max} = N - (n-m)\)</span>.</li>
+</ul></li>
+<li>Upper boundary <span class="math inline">\(U\)</span>
+<ul>
+<li>Start with largest possible value for <span class="math inline">\(M\)</span>, i.e. <span class="math inline">\(U_{max} = N - (n-m)\)</span></li>
+<li>Then, decrease incrementally while the <span class="math inline">\(\Pr(X \leq m) &lt; \alpha/2\)</span>, so that we find the largest possible value which still fulfills the equation</li>
+</ul></li>
+<li>Lower boundary <span class="math inline">\(L\)</span>
+<ul>
+<li>Start with smallest possible value for <span class="math inline">\(M\)</span>, i.e. <span class="math inline">\(L_{min} = m\)</span></li>
+<li>Rewrite <span class="math inline">\(\Pr(X \geq m) = 1 - \Pr(X \leq m) = \alpha/2 \Leftrightarrow \Pr(X \leq m) = 1 - \alpha/2\)</span></li>
+<li>Then, increase incrementally while the <span class="math inline">\(\Pr(X \leq m) \geq 1-\alpha/2\)</span>, so that we find the smallest possible value which still fulfills the equation</li>
+</ul></li>
+</ul>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references">
+<div id="ref-agresti1998">
+<p>Agresti, Alan, and Brent A Coull. 1998. “Approximate Is Better Than ‘Exact’ for Interval Estimation of Binomial Proportions.” <em>The American Statistician</em> 52 (2): 119–26.</p>
+</div>
+<div id="ref-kuechenhoff">
+<p>Kauermann, Goeran, and Helmut Kuechenhoff. 2010. <em>Stichproben: Methoden Und Praktische Umsetzung Mit R</em>. Springer-Verlag.</p>
+</div>
+<div id="ref-wang2015">
+<p>Wang, Weizhen. 2015. “Exact Optimal Confidence Intervals for Hypergeometric Parameters.” <em>Journal of the American Statistical Association</em> 110 (512): 1491–9.</p>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

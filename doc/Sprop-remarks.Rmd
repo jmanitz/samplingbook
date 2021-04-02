@@ -1,14 +1,14 @@
 ---
-title: "Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates"
-author: "Juliane Manitz"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{samplingbook-Sprop}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
-bibliography: refs.bib
-link-citations: yes
+  title: "Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates"
+  author: "Juliane Manitz"
+  date: "`r Sys.Date()`"
+  output: rmarkdown::html_vignette
+  vignette: >
+    %\VignetteIndexEntry{Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+  bibliography: refs.bib
+  link-citations: yes
 ---
 
 ```{r, include = FALSE}
@@ -22,6 +22,7 @@ require(samplingbook, quietly = TRUE)
 In survey sampling on a finite population, a simple random sample is typically selected without replacement, in which case a hypergeometric distribution models the observation. A standard construction for the confidence interval is based on a Normal approximation of the proportion with plug-in estimates for proportion and respective variance. 
 
 In most scenarios, this strategy results in satisfactory properties. However, if $p$ is close to 0 or 1, it is recommended to use the exact confidence interval based on the hypergeometrical distribution [@kuechenhoff]. The Wald-type interval has a coverage probability as low as $n/N$ for any $\alpha$ [@wang2015]. Therefore, there is no guarantee for the interval to capture the true $M$ with the desired confidence level if the sample is much smaller than the population [@wang2015].
+
 
 ## Implementation in `samplingbook`
 
