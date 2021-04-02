@@ -1,14 +1,13 @@
 ---
-  title: "Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates"
-  author: "Juliane Manitz"
-  date: "`r Sys.Date()`"
-  output: rmarkdown::html_vignette
-  vignette: >
-    %\VignetteIndexEntry{Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates}
-    %\VignetteEngine{knitr::rmarkdown}
-    %\VignetteEncoding{UTF-8}
-  bibliography: refs.bib
-  link-citations: yes
+title: "Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates"
+author: "Juliane Manitz"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: refs.bib
+link-citations: yes
 ---
 
 ```{r, include = FALSE}
