@@ -1,7 +1,7 @@
 language: r
 cache: packages
 
-r:
+#Define multiple R-versions:
   - oldrel
   - release
 
@@ -13,9 +13,6 @@ r_github_packages:
   
 after_success:
   - Rscript -e 'library(covr); covr::codecov(type = "all")'
-
-#after_failure:
-#  - ./travis-tool.sh dump_logs
 
 notifications:
   email:

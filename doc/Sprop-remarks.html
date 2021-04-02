@@ -13,7 +13,7 @@
 <meta name="author" content="Juliane Manitz" />
 
 
-<title>Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</title>
+<title>Some Remarks on Sprop</title>
 
 
 
@@ -298,13 +298,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Some Remarks on Exact Hypergeometric Confidence Intervals for Proportion Estimates</h1>
+<h1 class="title toc-ignore">Some Remarks on Sprop</h1>
 <h4 class="author">Juliane Manitz</h4>
+<h4 class="date"><code>.r Sys.Date()</code></h4>
 
 
 
+<div id="exact-hypergeometric-confidence-intervals-for-proportion-estimates" class="section level2">
+<h2>Exact Hypergeometric Confidence Intervals for Proportion Estimates</h2>
 <p>In survey sampling on a finite population, a simple random sample is typically selected without replacement, in which case a hypergeometric distribution models the observation. A standard construction for the confidence interval is based on a Normal approximation of the proportion with plug-in estimates for proportion and respective variance.</p>
 <p>In most scenarios, this strategy results in satisfactory properties. However, if <span class="math inline">\(p\)</span> is close to 0 or 1, it is recommended to use the exact confidence interval based on the hypergeometrical distribution <span class="citation">(Kauermann and Kuechenhoff <a href="#ref-kuechenhoff" role="doc-biblioref">2010</a>)</span>. The Wald-type interval has a coverage probability as low as <span class="math inline">\(n/N\)</span> for any <span class="math inline">\(\alpha\)</span> <span class="citation">(Wang <a href="#ref-wang2015" role="doc-biblioref">2015</a>)</span>. Therefore, there is no guarantee for the interval to capture the true <span class="math inline">\(M\)</span> with the desired confidence level if the sample is much smaller than the population <span class="citation">(Wang <a href="#ref-wang2015" role="doc-biblioref">2015</a>)</span>.</p>
+</div>
 <div id="implementation-in-samplingbook" class="section level2">
 <h2>Implementation in <code>samplingbook</code></h2>
 <p>The function <code>samplingbook::Sprop()</code> estimates the proportion out of samples either with or without consideration of finite population correction.</p>

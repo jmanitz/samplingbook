@@ -1,5 +1,6 @@
 ## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
+  rmarkdown.html_vignette.check_title = FALSE,
   collapse = TRUE,
   comment = "#>"
 )
