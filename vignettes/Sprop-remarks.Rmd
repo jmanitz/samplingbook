@@ -1,0 +1,131 @@
+---
+title: "Some Remarks on Sprop"
+author: "Juliane Manitz"
+date: "`.r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Some Remarks on Sprop}
+  %\VignetteEngine{knitr::rmarkdown}
+bibliography: refs.bib
+link-citations: yes
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  rmarkdown.html_vignette.check_title = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+require(samplingbook, quietly = TRUE)
+```
+
+## Exact Hypergeometric Confidence Intervals for Proportion Estimates
+
+In survey sampling on a finite population, a simple random sample is typically selected without replacement, in which case a hypergeometric distribution models the observation. A standard construction for the confidence interval is based on a Normal approximation of the proportion with plug-in estimates for proportion and respective variance. 
+
+In most scenarios, this strategy results in satisfactory properties. However, if $p$ is close to 0 or 1, it is recommended to use the exact confidence interval based on the hypergeometrical distribution [@kuechenhoff]. The Wald-type interval has a coverage probability as low as $n/N$ for any $\alpha$ [@wang2015]. Therefore, there is no guarantee for the interval to capture the true $M$ with the desired confidence level if the sample is much smaller than the population [@wang2015].
+
+
+## Implementation in `samplingbook`
+
+The function `samplingbook::Sprop()` estimates the proportion out of samples either with or without consideration of finite population correction. 
+
+Parameters are
+
+* `m` an optional non-negative integer for number of positive events, 
+* `n` an optional positive integer for sample size,
+* `N` positive integer for population size. Default is `N=Inf`, which means calculations are carried out without finite population correction.
+
+In case of finite population of size `N` is provided, different methods for calculating confidence intervals are provided
+
+*	`approx` Wald-type interval based on normal approximation [@agresti1998], and
+*	`exact` based on hypergeometric distribution as described in more detail in this document.
+
+``` {r}
+Sprop(m=3, n = 10, N = 50, level = 0.95)
+```
+
+## Exact Hypergeometric Confidence Intervals
+
+We observe $X=m$, the number of sampled units having the characteristic of interest, where $X \sim Hyper(M, N, n)$, with 
+
+* $N$ is the population size, 
+*	$M$ is the number of population units with characteristic of interest, and 
+*	$n$ is the given sample size.
+
+The respective density, i.e. the probability of successes in a sample given $M, N, n$, is 
+$$\Pr(X=m) = \frac{{M \choose m} {N-M \choose n-m}}{N \choose n}, \text{ with  support }m \in \{\max(0,n+M-N), \min(M,n)\} $$
+
+We want to estimate population proportion $p = M/N$, which is equivalent to estimating $M$, the total number of population units with some attribute of interest. 
+Then, the boundaries for the exact confidence interval $[L,U]$ can be derived as follows: 
+
+$$
+\begin{aligned}
+\Pr(X \leq m) & = \sum_{x=0}^m  \frac{{U \choose x} {N-U \choose n-x}}{N \choose n} = \alpha_1 \\
+\Pr(X \geq m) & = \sum_{x=m}^n  \frac{{L \choose x} {N-L \choose n-x}}{N \choose n} = \alpha_2,\\
+& \text{with coverage constraint } \alpha_1 + \alpha_2 \leq \alpha
+\end{aligned}
+$$
+For sake of simplicity, we assume symmetric confidence intervals, i.e $\alpha_1 = \alpha_2 = \alpha/2$.
+
+## Some Details on the Implementation
+
+The implementation of the exact confidence interval for proportion estimates uses the hypergeometric distribution function `phyper(x, M, N-M, n)`. Note that the parametrization differs slightly from ours. 
+
+<!--#phyper is based on calculating dhyper and phyper(...)/dhyper(...) (as a summation), based on ideas of Ian Smith and Morten Welinder.-->
+
+``` {r, echo=FALSE, fig.width=7, fig.height=4}
+#par(mfrow=c(1,2))
+#M <- 50; curve(phyper(x, M, 500-M, 100), from=0,to=30, col="#E495A5", lwd=2, las=1,
+#               ylab="Distribution function, F(x)", main="Hyp(x, M, N-M, n) given N=500, n=100")
+#M <- 60; curve(phyper(x, M, 500-M, 100), from=0,to=30, add=TRUE, col="#86B875", lwd=2)
+#M <- 70; curve(phyper(x, M, 500-M, 100), from=0,to=30, add=TRUE, col="#7DB0DD", lwd=2)
+#abline(h=c(0.975,0.025), lty=2); abline(v=15)
+#legend("bottomright", legend=paste0("M=",c(50,60,70)), col=c( "#E495A5","#86B875","#7DB0DD"), lty=1,lwd=2)
+
+#par(mfrow=c(1,2))
+M <- 4; curve(phyper(x, M, 50-M, 10), from=0,to=15, col="#E495A5", lwd=2, las=1, ylim=c(0,1),
+               ylab="Distribution function, F(x)", main="Hyp(x, M, N-M, n) given N=50, n=10")
+#M <- 8; curve(phyper(x-1, M, 50-M, 10), from=0,to=15, add=TRUE, col="#86B875", lwd=2)
+M <- 20; curve(phyper(x, M, 50-M, 10), from=0,to=15, add=TRUE, col="#86B875", lwd=2)
+M <- 32; curve(phyper(x, M, 50-M, 10), from=0,to=15, add=TRUE, col="#7DB0DD", lwd=2)
+abline(h=c(0.975,0.025), lty=2); abline(v=3)
+legend("bottomright", legend=paste0("M=",c(4,20,32)), col=c( "#E495A5","#86B875","#7DB0DD"), lty=1,lwd=2)
+```
+
+We search for the optimal confidence boundaries $[L,U]$ that fulfill the requirements as defined in the equations above.  
+
+* Given known total population $N$, sample size $n$ and number of successes in the sample $m$, we can define some feasibility boundaries for $M$:
+    + Naturally, the smallest possible value is the observed number of successes $M_{min} = m$
+    + The largest possible value equals the total number $N$ minus negative observations in the sample, i.e. $M_{max} = N - (n-m)$.
+
+* Upper boundary $U$
+    + Start with largest possible value for $M$, i.e. $U_{max} = N - (n-m)$
+    + Then, decrease incrementally while the $\Pr(X \leq m) < \alpha/2$, so that we find the largest possible value which still fulfills the equation
+
+
+``` {r, echo=FALSE, eval=FALSE}
+N = 50; n = 10; m= 3  
+(Ux =  N - (n-m)) # initialize 
+phyper(m, Ux, N-Ux, n)
+(Ux <- Ux -1)
+#Ux <- 32
+phyper(m, Ux, N-Ux, n)
+```
+
+* Lower boundary $L$ 
+    + Start with smallest possible value for $M$, i.e. $L_{min} = m$
+    + Rewrite $\Pr(X \geq m) = 1 - \Pr(X \leq m) = \alpha/2 \Leftrightarrow \Pr(X \leq m) = 1 - \alpha/2$
+    + Then, increase incrementally while the $\Pr(X \leq m) \geq 1-\alpha/2$, so that we find the smallest possible value which still fulfills the equation
+
+
+``` {r, echo=FALSE, eval=FALSE}
+N = 50; n = 10; m= 3  
+(Ux = m) # initialize 
+phyper(m, Ux, N-Ux, n)
+(Ux <- Ux + 1)
+phyper(m, Ux, N-Ux, n)
+#Ux <- 32
+```
+
+## References
